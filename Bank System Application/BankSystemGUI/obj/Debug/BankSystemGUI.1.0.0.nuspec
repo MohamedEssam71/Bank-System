@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>BankSystemGUI</id>
+    <version>1.0.0</version>
+    <authors>BankSystemGUI</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net7.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net7.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\bin\Debug\net7.0-windows\BankSystemGUI.runtimeconfig.json" target="lib\net7.0-windows7.0\BankSystemGUI.runtimeconfig.json" />
+    <file src="H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\bin\Debug\net7.0-windows\BankSystemGUI.dll" target="lib\net7.0-windows7.0\BankSystemGUI.dll" />
+  </files>
+</package>

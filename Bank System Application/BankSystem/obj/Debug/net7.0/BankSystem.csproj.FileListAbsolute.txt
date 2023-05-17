@@ -1,0 +1,12 @@
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\bin\Debug\net7.0\BankSystem.deps.json
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\bin\Debug\net7.0\BankSystem.dll
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\bin\Debug\net7.0\BankSystem.pdb
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.csproj.AssemblyReference.cache
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.GeneratedMSBuildEditorConfig.editorconfig
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.AssemblyInfoInputs.cache
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.AssemblyInfo.cs
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.csproj.CoreCompileInputs.cache
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.dll
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\refint\BankSystem.dll
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.pdb
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\ref\BankSystem.dll
