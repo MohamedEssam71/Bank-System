@@ -42,7 +42,11 @@ namespace BankSystemGUI
                 con.Open();
                 if (con.State == ConnectionState.Open)
                 {
-                    string query = "insert into Customer(ssn, name, password, type, phone, address) values('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() + "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() + "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "')";
+                    string query = "insert into Customer(ssn, name, password, type, phone, address) " +
+                        "values('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() + 
+                        "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() + 
+                        "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "')";
+
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Registration Complete", "Well Done");
