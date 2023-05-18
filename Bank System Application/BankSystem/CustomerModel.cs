@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace BankSystem
 {
-    internal class CustomerModel
+    public class CustomerModel
     {
-        private string SSN { get; set; }
-        private string Name { get; set; }
-        private string Phone { get; set; }
-        private string Address { get; set; }
-        private Branch Branch { get; set; }
-        private List<Loan> Loans { get; set; }
-        private List<Account> Accounts { get; }
-        public Customer(string SSN, string name, string phone, string address, Branch branch, Loan loan)
+        public string SSN { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public Branch Branch { get; set; }
+        public List<Loan> Loans { get; set; }
+        public List<Account> Accounts { get; }
+        CustomerModel(string SSN, string name, string phone, string address, Branch branch, Loan loan)
         {
             this.SSN = SSN;
             this.Name = name;

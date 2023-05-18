@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BankSystem
 {
-    internal class Bank
+    public class Bank
     {
-        private int Code { get; set; }
-        private string Name { get; set; }
-        private string Address { get; set; }
-        private List<Branch> branches { get; }
+        public int Code { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public List<Branch> branches { get; }
         public Bank(int code, string name, string address) {
             this.Code = code;
             this.Name = name;
