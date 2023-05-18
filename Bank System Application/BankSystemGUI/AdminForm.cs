@@ -33,19 +33,58 @@ namespace BankSystemGUI
 
         private void addBankButton_Click(object sender, EventArgs e)
         {
-            
+
             th = new Thread(openAddBankForm);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
             this.Close();
-           
+
         }
-        
+
         private void openAddBankForm()
         {
             Application.Run(new AddBankForm());
         }
-        
 
+        private void addBranchButton_Click(object sender, EventArgs e)
+        {
+
+            th = new Thread(openAddBranchForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+
+        }
+
+        private void openAddBranchForm()
+        {
+            Application.Run(new AddBranchForm());
+        }
+
+        private void showCustomerListButton_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openCustomerListForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+
+        }
+
+        private void openCustomerListForm()
+        {
+            Application.Run(new CustomerList());
+        }
+
+        private void showLoansListButton_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openAdminLoansForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openAdminLoansForm()
+        {
+            Application.Run(new ShowLoansAdmin());
+        }
     }
 }

@@ -63,10 +63,10 @@
             // usernameLabel
             // 
             usernameLabel.AutoSize = true;
-            usernameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            usernameLabel.Location = new Point(92, 111);
+            usernameLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            usernameLabel.Location = new Point(95, 98);
             usernameLabel.Name = "usernameLabel";
-            usernameLabel.Size = new Size(106, 28);
+            usernameLabel.Size = new Size(103, 24);
             usernameLabel.TabIndex = 1;
             usernameLabel.Text = "Username";
             usernameLabel.Click += usernameLabel_Click;
@@ -74,49 +74,53 @@
             // usernameTextBox
             // 
             usernameTextBox.BackColor = Color.OldLace;
-            usernameTextBox.Location = new Point(204, 112);
+            usernameTextBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            usernameTextBox.Location = new Point(207, 99);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.Size = new Size(167, 27);
+            usernameTextBox.Size = new Size(167, 29);
             usernameTextBox.TabIndex = 2;
             usernameTextBox.TextChanged += usernameTextBox_TextChanged;
             // 
             // passwordTextBox
             // 
             passwordTextBox.BackColor = Color.OldLace;
-            passwordTextBox.Location = new Point(204, 202);
+            passwordTextBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            passwordTextBox.Location = new Point(207, 202);
             passwordTextBox.Name = "passwordTextBox";
-            passwordTextBox.Size = new Size(167, 27);
+            passwordTextBox.Size = new Size(164, 29);
             passwordTextBox.TabIndex = 4;
             // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
-            passwordLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            passwordLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             passwordLabel.Location = new Point(92, 202);
             passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new Size(101, 28);
+            passwordLabel.Size = new Size(99, 24);
             passwordLabel.TabIndex = 3;
             passwordLabel.Text = "Password";
             // 
             // typeLabel
             // 
             typeLabel.AutoSize = true;
-            typeLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            typeLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             typeLabel.Location = new Point(92, 367);
             typeLabel.Name = "typeLabel";
-            typeLabel.Size = new Size(57, 28);
+            typeLabel.Size = new Size(51, 24);
             typeLabel.TabIndex = 5;
             typeLabel.Text = "Type";
             // 
             // typeDropDownList
             // 
+            typeDropDownList.BackColor = Color.OldLace;
             typeDropDownList.Cursor = Cursors.Hand;
             typeDropDownList.DropDownStyle = ComboBoxStyle.DropDownList;
+            typeDropDownList.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             typeDropDownList.FormattingEnabled = true;
             typeDropDownList.Items.AddRange(new object[] { "Customer", "Employee", "Admin" });
-            typeDropDownList.Location = new Point(204, 371);
+            typeDropDownList.Location = new Point(207, 371);
             typeDropDownList.Name = "typeDropDownList";
-            typeDropDownList.Size = new Size(167, 28);
+            typeDropDownList.Size = new Size(164, 30);
             typeDropDownList.TabIndex = 6;
             // 
             // registrationPictureBox
@@ -133,54 +137,57 @@
             // phoneTextBox
             // 
             phoneTextBox.BackColor = Color.OldLace;
-            phoneTextBox.Location = new Point(204, 259);
+            phoneTextBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            phoneTextBox.Location = new Point(207, 259);
             phoneTextBox.Name = "phoneTextBox";
-            phoneTextBox.Size = new Size(167, 27);
+            phoneTextBox.Size = new Size(164, 29);
             phoneTextBox.TabIndex = 9;
             // 
             // phoneLabel
             // 
             phoneLabel.AutoSize = true;
-            phoneLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            phoneLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             phoneLabel.Location = new Point(92, 258);
             phoneLabel.Name = "phoneLabel";
-            phoneLabel.Size = new Size(71, 28);
+            phoneLabel.Size = new Size(66, 24);
             phoneLabel.TabIndex = 8;
             phoneLabel.Text = "Phone";
             // 
             // addressTextBox
             // 
             addressTextBox.BackColor = Color.OldLace;
-            addressTextBox.Location = new Point(204, 316);
+            addressTextBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            addressTextBox.Location = new Point(207, 316);
             addressTextBox.Name = "addressTextBox";
-            addressTextBox.Size = new Size(167, 27);
+            addressTextBox.Size = new Size(164, 29);
             addressTextBox.TabIndex = 11;
             // 
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            addressLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             addressLabel.Location = new Point(92, 312);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new Size(87, 28);
+            addressLabel.Size = new Size(85, 24);
             addressLabel.TabIndex = 10;
             addressLabel.Text = "Address";
             // 
             // ssnTextBox
             // 
             ssnTextBox.BackColor = Color.OldLace;
-            ssnTextBox.Location = new Point(204, 153);
+            ssnTextBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            ssnTextBox.Location = new Point(207, 151);
             ssnTextBox.Name = "ssnTextBox";
-            ssnTextBox.Size = new Size(167, 27);
+            ssnTextBox.Size = new Size(164, 29);
             ssnTextBox.TabIndex = 13;
             // 
             // ssnLabel
             // 
             ssnLabel.AutoSize = true;
-            ssnLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            ssnLabel.Location = new Point(92, 153);
+            ssnLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ssnLabel.Location = new Point(95, 152);
             ssnLabel.Name = "ssnLabel";
-            ssnLabel.Size = new Size(50, 28);
+            ssnLabel.Size = new Size(48, 24);
             ssnLabel.TabIndex = 12;
             ssnLabel.Text = "SSN";
             // 

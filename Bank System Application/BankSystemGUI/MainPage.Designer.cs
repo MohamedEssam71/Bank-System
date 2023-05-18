@@ -43,7 +43,7 @@
             BankSystemTitle.BackColor = SystemColors.ButtonHighlight;
             BankSystemTitle.Font = new Font("Bauhaus 93", 30F, FontStyle.Bold, GraphicsUnit.Point);
             BankSystemTitle.ForeColor = SystemColors.Highlight;
-            BankSystemTitle.Location = new Point(253, 30);
+            BankSystemTitle.Location = new Point(44, 55);
             BankSystemTitle.Name = "BankSystemTitle";
             BankSystemTitle.Size = new Size(311, 57);
             BankSystemTitle.TabIndex = 0;
@@ -58,9 +58,9 @@
             registerButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
             registerButton.FlatStyle = FlatStyle.Flat;
             registerButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            registerButton.Location = new Point(167, 218);
+            registerButton.Location = new Point(87, 223);
             registerButton.Name = "registerButton";
-            registerButton.Size = new Size(141, 56);
+            registerButton.Size = new Size(211, 56);
             registerButton.TabIndex = 1;
             registerButton.Text = "Register";
             registerButton.UseVisualStyleBackColor = false;
@@ -75,9 +75,9 @@
             loginButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            loginButton.Location = new Point(167, 130);
+            loginButton.Location = new Point(87, 136);
             loginButton.Name = "loginButton";
-            loginButton.Size = new Size(141, 56);
+            loginButton.Size = new Size(211, 56);
             loginButton.TabIndex = 2;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = false;
@@ -85,12 +85,13 @@
             // 
             // welcomePictureBox
             // 
-            welcomePictureBox.BackColor = SystemColors.HighlightText;
-            welcomePictureBox.BackgroundImage = (Image)resources.GetObject("welcomePictureBox.BackgroundImage");
+            welcomePictureBox.BackColor = SystemColors.Window;
+            welcomePictureBox.Dock = DockStyle.Right;
             welcomePictureBox.Image = (Image)resources.GetObject("welcomePictureBox.Image");
-            welcomePictureBox.Location = new Point(418, 115);
+            welcomePictureBox.Location = new Point(393, 0);
             welcomePictureBox.Name = "welcomePictureBox";
-            welcomePictureBox.Size = new Size(305, 286);
+            welcomePictureBox.Size = new Size(360, 438);
+            welcomePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             welcomePictureBox.TabIndex = 3;
             welcomePictureBox.TabStop = false;
             // 
@@ -103,9 +104,9 @@
             exitButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
             exitButton.FlatStyle = FlatStyle.Flat;
             exitButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            exitButton.Location = new Point(167, 302);
+            exitButton.Location = new Point(87, 317);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(141, 56);
+            exitButton.Size = new Size(211, 56);
             exitButton.TabIndex = 4;
             exitButton.Text = "Exit";
             exitButton.UseVisualStyleBackColor = false;
@@ -116,7 +117,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(753, 438);
             Controls.Add(exitButton);
             Controls.Add(welcomePictureBox);
             Controls.Add(loginButton);

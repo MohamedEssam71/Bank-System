@@ -9,10 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BankSystem\BankSystem.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AddBranchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomerListEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="ShowLoansAdmin.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 

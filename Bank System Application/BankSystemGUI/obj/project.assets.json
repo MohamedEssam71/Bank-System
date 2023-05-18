@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "BankSystem/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/BankSystem.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankSystem.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BankSystem/1.0.0": {
+      "type": "project",
+      "path": "../BankSystem/BankSystem.csproj",
+      "msbuildProject": "../BankSystem/BankSystem.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "BankSystem >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\legion\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank System Application\\BankSystem\\BankSystem.csproj": {
+              "projectPath": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank System Application\\BankSystem\\BankSystem.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

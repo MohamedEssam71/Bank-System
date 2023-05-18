@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "BankSystemGUI/1.0.0": {
+        "dependencies": {
+          "BankSystem": "1.0.0"
+        },
         "runtime": {
           "BankSystemGUI.dll": {}
+        }
+      },
+      "BankSystem/1.0.0": {
+        "runtime": {
+          "BankSystem.dll": {}
         }
       }
     }
   },
   "libraries": {
     "BankSystemGUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BankSystem/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

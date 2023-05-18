@@ -20,3 +20,17 @@ H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.LoginForm.resources
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.AdminForm.resources
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.AddBankForm.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.AddBranchForm.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerList.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerListControl.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerForm.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.RequestLoan.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\bin\Debug\net7.0-windows\BankSystem.dll
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\bin\Debug\net7.0-windows\BankSystem.pdb
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.csproj.CopyComplete
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerLoanListControl.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.ShowLoansCustomer.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.EmployeeForm.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.ShowLoansEmployee.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerListEmployee.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.ShowLoansAdmin.resources
