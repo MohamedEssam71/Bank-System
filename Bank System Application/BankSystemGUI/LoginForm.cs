@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -46,28 +47,54 @@ namespace BankSystemGUI
             else
             {
                 // Check DataBase
-                if (ssnLoginTextBox.Text == "admin" && passwordLoginTextBox.Text == "admin")
+                SqlConnection con = new SqlConnection(Program.ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
                 {
-                    th = new Thread(openAdminForm);
+                    string query = "SELECT ssn, password, type FROM Person WHERE " +
+                        "ssn = " + "'" + ssnLoginTextBox.Text.ToString() +"'" + " AND " +
+                        "password = " + "'" + passwordLoginTextBox.Text.ToString() + "'";
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            string ssnResult = sqlDataReader.GetString(0);
+                            string passResult = sqlDataReader.GetString(1);
+                            string typeResult = sqlDataReader.GetString(2);
+                            if(ssnLoginTextBox.Text == ssnResult)
+                            {
+                                if(passResult == passwordLoginTextBox.Text)
+                                {
+                                    Program.ssnGlobal = ssnResult;
+                                    Program.passwordGlobal = passResult;
+                                    if (typeResult == "Admin")
+                                    {
+                                        th = new Thread(openAdminForm);
+                                    }
+                                    else if (typeResult == "Employee")
+                                    {
+                                        th = new Thread(openEmployeeForm);
+                                    }
+                                    else if (typeResult == "Customer")
+                                    {
+                                        th = new Thread(openCustomerForm);
+                                    }
+                                    con.Close();
+                                    th.SetApartmentState(ApartmentState.STA);
+                                    th.Start();
+                                    this.Close();
+                                    return;
+                                }
+                            }
+                        }
+                    }
                 }
-                else if (ssnLoginTextBox.Text == "employee" && passwordLoginTextBox.Text == "employee")
-                {
-                    th = new Thread(openEmployeeForm);
-                }
-                else if (ssnLoginTextBox.Text == "customer" && passwordLoginTextBox.Text == "customer")
-                {
-                    th = new Thread(openCustomerForm);
-                }
-                else
-                {
-                    MessageBox.Show("Username or Password is incorrect !", "Error");
-                    ssnLoginTextBox.Clear();
-                    passwordLoginTextBox.Clear();
-                    return;
-                }
-                th.SetApartmentState(ApartmentState.STA);
-                th.Start();
-                this.Close();
+                MessageBox.Show("Username or Password is incorrect !", "Error");
+                ssnLoginTextBox.Clear();
+                passwordLoginTextBox.Clear();
+                return;
             }
 
         }

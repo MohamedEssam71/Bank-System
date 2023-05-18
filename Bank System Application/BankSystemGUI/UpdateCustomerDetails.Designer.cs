@@ -43,6 +43,10 @@
             ssnLabel = new Label();
             updateConfirmButton = new Button();
             goBackToCustomerButton = new Button();
+            bankNumLabel = new Label();
+            bankNumComboBox = new ComboBox();
+            branchNumComboBox = new ComboBox();
+            branchNumLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)updateCustomerPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -103,9 +107,9 @@
             updateCustomerPictureBox.BackColor = Color.White;
             updateCustomerPictureBox.Dock = DockStyle.Right;
             updateCustomerPictureBox.Image = (Image)resources.GetObject("updateCustomerPictureBox.Image");
-            updateCustomerPictureBox.Location = new Point(358, 0);
+            updateCustomerPictureBox.Location = new Point(386, 0);
             updateCustomerPictureBox.Name = "updateCustomerPictureBox";
-            updateCustomerPictureBox.Size = new Size(370, 445);
+            updateCustomerPictureBox.Size = new Size(370, 538);
             updateCustomerPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             updateCustomerPictureBox.TabIndex = 7;
             updateCustomerPictureBox.TabStop = false;
@@ -172,7 +176,7 @@
             // 
             updateConfirmButton.Cursor = Cursors.Hand;
             updateConfirmButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            updateConfirmButton.Location = new Point(43, 371);
+            updateConfirmButton.Location = new Point(32, 486);
             updateConfirmButton.Name = "updateConfirmButton";
             updateConfirmButton.Size = new Size(113, 40);
             updateConfirmButton.TabIndex = 14;
@@ -184,7 +188,7 @@
             // 
             goBackToCustomerButton.Cursor = Cursors.Hand;
             goBackToCustomerButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            goBackToCustomerButton.Location = new Point(209, 371);
+            goBackToCustomerButton.Location = new Point(198, 486);
             goBackToCustomerButton.Name = "goBackToCustomerButton";
             goBackToCustomerButton.Size = new Size(113, 40);
             goBackToCustomerButton.TabIndex = 15;
@@ -192,12 +196,60 @@
             goBackToCustomerButton.UseVisualStyleBackColor = true;
             goBackToCustomerButton.Click += goBackToMainButton_Click;
             // 
+            // bankNumLabel
+            // 
+            bankNumLabel.AutoSize = true;
+            bankNumLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bankNumLabel.Location = new Point(29, 367);
+            bankNumLabel.Name = "bankNumLabel";
+            bankNumLabel.Size = new Size(98, 24);
+            bankNumLabel.TabIndex = 16;
+            bankNumLabel.Text = "BankNum";
+            bankNumLabel.Click += label1_Click;
+            // 
+            // bankNumComboBox
+            // 
+            bankNumComboBox.BackColor = Color.OldLace;
+            bankNumComboBox.Cursor = Cursors.Hand;
+            bankNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            bankNumComboBox.FormattingEnabled = true;
+            bankNumComboBox.Location = new Point(144, 363);
+            bankNumComboBox.Name = "bankNumComboBox";
+            bankNumComboBox.Size = new Size(164, 30);
+            bankNumComboBox.TabIndex = 17;
+            bankNumComboBox.SelectedIndexChanged += bankNumComboBox_SelectedIndexChanged;
+            // 
+            // branchNumComboBox
+            // 
+            branchNumComboBox.BackColor = Color.OldLace;
+            branchNumComboBox.Cursor = Cursors.Hand;
+            branchNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            branchNumComboBox.FormattingEnabled = true;
+            branchNumComboBox.Location = new Point(145, 419);
+            branchNumComboBox.Name = "branchNumComboBox";
+            branchNumComboBox.Size = new Size(164, 30);
+            branchNumComboBox.TabIndex = 19;
+            // 
+            // branchNumLabel
+            // 
+            branchNumLabel.AutoSize = true;
+            branchNumLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            branchNumLabel.Location = new Point(30, 423);
+            branchNumLabel.Name = "branchNumLabel";
+            branchNumLabel.Size = new Size(117, 24);
+            branchNumLabel.TabIndex = 18;
+            branchNumLabel.Text = "BranchNum";
+            // 
             // UpdateCustomerDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(728, 445);
+            ClientSize = new Size(756, 538);
+            Controls.Add(branchNumComboBox);
+            Controls.Add(branchNumLabel);
+            Controls.Add(bankNumComboBox);
+            Controls.Add(bankNumLabel);
             Controls.Add(goBackToCustomerButton);
             Controls.Add(updateConfirmButton);
             Controls.Add(ssnTextBox);
@@ -238,5 +290,9 @@
         private Label ssnLabel;
         private Button updateConfirmButton;
         private Button goBackToCustomerButton;
+        private Label bankNumLabel;
+        private ComboBox bankNumComboBox;
+        private ComboBox branchNumComboBox;
+        private Label branchNumLabel;
     }
 }

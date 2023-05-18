@@ -3,7 +3,8 @@ namespace BankSystemGUI
     internal static class Program
     {
         public static string ConString = "Data Source=DESKTOP-V6573KH;Initial Catalog=BankSystem;Integrated Security=True";
-
+        public static string ssnGlobal = "";
+        public static string passwordGlobal = "";
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
