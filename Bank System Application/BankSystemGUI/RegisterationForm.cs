@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,7 @@ namespace BankSystemGUI
     public partial class RegisterationForm : Form
     {
         private Thread th;
+        public string ConString = "Data Source=DESKTOP-U46LA28;Initial Catalog=BankSystem;Integrated Security=True";
         public RegisterationForm()
         {
             InitializeComponent();
@@ -35,11 +38,19 @@ namespace BankSystemGUI
             }
             else
             {
-                MessageBox.Show("Registration Complete", "Well Done");
-                th = new Thread(openMainForm);
-                th.SetApartmentState(ApartmentState.STA);
-                th.Start();
-                this.Close();
+                SqlConnection con = new SqlConnection(ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
+                {
+                    string query = "insert into Customer(ssn, name, password, type, phone, address) values('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() + "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() + "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Registration Complete", "Well Done");
+                    th = new Thread(openMainForm);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+                    this.Close();
+                }
             }
         }
         private bool checkIfRegisterFill()

@@ -10,3 +10,11 @@ H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\ob
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\refint\BankSystem.dll
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.pdb
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystem\obj\Debug\net7.0\ref\BankSystem.dll
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.csproj.AssemblyReference.cache
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.AssemblyInfoInputs.cache
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.AssemblyInfo.cs
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.csproj.CoreCompileInputs.cache
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.dll
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\refint\BankSystem.dll
+C:\Users\Maya Ayman\Source\Repos\Bank-System\Bank System Application\BankSystem\obj\Debug\net7.0\BankSystem.pdb
