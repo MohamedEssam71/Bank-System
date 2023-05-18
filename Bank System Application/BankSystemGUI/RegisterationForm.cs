@@ -15,7 +15,7 @@ namespace BankSystemGUI
     public partial class RegisterationForm : Form
     {
         private Thread th;
-        public string ConString = "Data Source=DESKTOP-V6573KH;Initial Catalog=BankSystem;Integrated Security=True";
+        
         public RegisterationForm()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace BankSystemGUI
 
         private void populateBankNumCode()
         {
-            SqlConnection con = new SqlConnection(ConString);
+            SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();
             if (con.State == ConnectionState.Open)
             {
@@ -71,7 +71,7 @@ namespace BankSystemGUI
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection(ConString);
+                    SqlConnection con = new SqlConnection(Program.ConString);
                     con.Open();
                     if (con.State == ConnectionState.Open)
                     {
@@ -95,7 +95,7 @@ namespace BankSystemGUI
         }
         private bool isValidSSN()
         {
-            SqlConnection con = new SqlConnection(ConString);
+            SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();
             if (con.State == ConnectionState.Open)
             {
@@ -106,8 +106,8 @@ namespace BankSystemGUI
                 {
                     while (sqlDataReader.Read())
                     {
-                        int result = sqlDataReader.GetInt32(0);
-                        if(result == int.Parse(ssnTextBox.Text))
+                        string result = sqlDataReader.GetString(0);
+                        if(result == ssnTextBox.Text)
                         {
                             return false;
                         }
@@ -150,7 +150,7 @@ namespace BankSystemGUI
                 branchNumLabel.Visible = true;
             }
 
-            SqlConnection con = new SqlConnection(ConString);
+            SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();
             if (con.State == ConnectionState.Open)
             {
