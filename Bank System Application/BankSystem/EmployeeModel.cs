@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankSystem
 {
-    internal class EmployeeModel : CustomerModel
+    internal class EmployeeModel
     {
         /*
         private List<CustomerModel> userList { get; set; } = new List<CustomerModel>();

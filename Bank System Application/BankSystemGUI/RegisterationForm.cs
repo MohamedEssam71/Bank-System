@@ -15,12 +15,38 @@ namespace BankSystemGUI
     public partial class RegisterationForm : Form
     {
         private Thread th;
-        public string ConString = "Data Source=DESKTOP-U46LA28;Initial Catalog=BankSystem;Integrated Security=True";
+        public string ConString = "Data Source=DESKTOP-V6573KH;Initial Catalog=BankSystem;Integrated Security=True";
         public RegisterationForm()
         {
             InitializeComponent();
+            populateBankNumCode();
+            if (bankNumComboBox.Text.Length != 0)
+            {
+                branchNumComboBox.Visible = true;
+                branchNumLabel.Visible = true;
+            }
         }
 
+        private void populateBankNumCode()
+        {
+            SqlConnection con = new SqlConnection(ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT Code from Bank ORDER BY Code";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int result = sqlDataReader.GetInt32(0);
+                        bankNumComboBox.Items.Add(result);
+                    }
+                }
+            }
+            con.Close();
+        }
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -32,30 +58,64 @@ namespace BankSystemGUI
 
         private void signConfirmButton_Click(object sender, EventArgs e)
         {
+
             if (!checkIfRegisterFill())
             {
                 MessageBox.Show("Fill all the empty places !", "Error");
             }
             else
             {
-                SqlConnection con = new SqlConnection(ConString);
-                con.Open();
-                if (con.State == ConnectionState.Open)
+                if (!isValidSSN())
                 {
-                    string query = "insert into Person(ssn, name, password, type, phone, address) " +
-                        "values('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() + 
-                        "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() + 
-                        "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "')";
+                    MessageBox.Show("The SSN is used Before, Please Insert a new one", "Error");
+                }
+                else
+                {
+                    SqlConnection con = new SqlConnection(ConString);
+                    con.Open();
+                    if (con.State == ConnectionState.Open)
+                    {
+                        string query = "INSERT INTO Person(ssn, name, password, type, phone, address, " +
+                            "BranchBranchNumber, BranchBankCode) " +
+                            "VALUES ('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() +
+                            "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() +
+                            "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "', '"
+                            + branchNumComboBox.Text.ToString() + "', '" + bankNumComboBox.Text.ToString() + "')";
 
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Registration Complete", "Well Done");
-                    th = new Thread(openMainForm);
-                    th.SetApartmentState(ApartmentState.STA);
-                    th.Start();
-                    this.Close();
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Registration Complete", "Well Done");
+                        th = new Thread(openMainForm);
+                        th.SetApartmentState(ApartmentState.STA);
+                        th.Start();
+                        this.Close();
+                    }
                 }
             }
+        }
+        private bool isValidSSN()
+        {
+            SqlConnection con = new SqlConnection(ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT ssn FROM Person";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int result = sqlDataReader.GetInt32(0);
+                        if(result == int.Parse(ssnTextBox.Text))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            con.Close();
+            return true;
         }
         private bool checkIfRegisterFill()
         {
@@ -78,6 +138,41 @@ namespace BankSystemGUI
         private void openMainForm()
         {
             Application.Run(new MainPage());
+        }
+
+        private void bankNumComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            branchNumComboBox.Items.Clear();
+
+            if (bankNumComboBox.Text.Length != 0)
+            {
+                branchNumComboBox.Visible = true;
+                branchNumLabel.Visible = true;
+            }
+
+            SqlConnection con = new SqlConnection(ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT BranchNumber from Branch WHERE BankCode = "
+                    + bankNumComboBox.Text + " ORDER BY BranchNumber";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int result = sqlDataReader.GetInt32(0);
+                        branchNumComboBox.Items.Add(result);
+                    }
+                }
+            }
+            con.Close();
+        }
+
+        private void ssnTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

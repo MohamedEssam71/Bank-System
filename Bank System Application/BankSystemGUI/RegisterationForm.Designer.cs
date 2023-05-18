@@ -45,6 +45,10 @@
             ssnLabel = new Label();
             signConfirmButton = new Button();
             goBackToMainButton = new Button();
+            branchNumComboBox = new ComboBox();
+            branchNumLabel = new Label();
+            bankNumComboBox = new ComboBox();
+            bankNumLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)registrationPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -126,11 +130,11 @@
             // registrationPictureBox
             // 
             registrationPictureBox.BackColor = Color.White;
-            registrationPictureBox.BackgroundImage = (Image)resources.GetObject("registrationPictureBox.BackgroundImage");
             registrationPictureBox.Image = (Image)resources.GetObject("registrationPictureBox.Image");
-            registrationPictureBox.Location = new Point(420, 98);
+            registrationPictureBox.Location = new Point(441, 98);
             registrationPictureBox.Name = "registrationPictureBox";
-            registrationPictureBox.Size = new Size(304, 289);
+            registrationPictureBox.Size = new Size(393, 414);
+            registrationPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             registrationPictureBox.TabIndex = 7;
             registrationPictureBox.TabStop = false;
             // 
@@ -180,6 +184,7 @@
             ssnTextBox.Name = "ssnTextBox";
             ssnTextBox.Size = new Size(164, 29);
             ssnTextBox.TabIndex = 13;
+            ssnTextBox.TextChanged += ssnTextBox_TextChanged;
             // 
             // ssnLabel
             // 
@@ -195,7 +200,7 @@
             // 
             signConfirmButton.Cursor = Cursors.Hand;
             signConfirmButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            signConfirmButton.Location = new Point(457, 411);
+            signConfirmButton.Location = new Point(519, 527);
             signConfirmButton.Name = "signConfirmButton";
             signConfirmButton.Size = new Size(113, 40);
             signConfirmButton.TabIndex = 14;
@@ -207,7 +212,7 @@
             // 
             goBackToMainButton.Cursor = Cursors.Hand;
             goBackToMainButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            goBackToMainButton.Location = new Point(601, 411);
+            goBackToMainButton.Location = new Point(684, 527);
             goBackToMainButton.Name = "goBackToMainButton";
             goBackToMainButton.Size = new Size(113, 40);
             goBackToMainButton.TabIndex = 15;
@@ -215,12 +220,63 @@
             goBackToMainButton.UseVisualStyleBackColor = true;
             goBackToMainButton.Click += goBackToMainButton_Click;
             // 
+            // branchNumComboBox
+            // 
+            branchNumComboBox.BackColor = Color.OldLace;
+            branchNumComboBox.Cursor = Cursors.Hand;
+            branchNumComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            branchNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            branchNumComboBox.FormattingEnabled = true;
+            branchNumComboBox.Location = new Point(220, 502);
+            branchNumComboBox.Name = "branchNumComboBox";
+            branchNumComboBox.Size = new Size(154, 30);
+            branchNumComboBox.TabIndex = 17;
+            branchNumComboBox.Visible = false;
+            // 
+            // branchNumLabel
+            // 
+            branchNumLabel.AutoSize = true;
+            branchNumLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            branchNumLabel.Location = new Point(95, 502);
+            branchNumLabel.Name = "branchNumLabel";
+            branchNumLabel.Size = new Size(122, 24);
+            branchNumLabel.TabIndex = 16;
+            branchNumLabel.Text = "Branch Num";
+            branchNumLabel.Visible = false;
+            // 
+            // bankNumComboBox
+            // 
+            bankNumComboBox.BackColor = Color.OldLace;
+            bankNumComboBox.Cursor = Cursors.Hand;
+            bankNumComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            bankNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            bankNumComboBox.FormattingEnabled = true;
+            bankNumComboBox.Location = new Point(207, 438);
+            bankNumComboBox.Name = "bankNumComboBox";
+            bankNumComboBox.Size = new Size(164, 30);
+            bankNumComboBox.TabIndex = 19;
+            bankNumComboBox.SelectedIndexChanged += bankNumComboBox_SelectedIndexChanged;
+            // 
+            // bankNumLabel
+            // 
+            bankNumLabel.AutoSize = true;
+            bankNumLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bankNumLabel.Location = new Point(95, 438);
+            bankNumLabel.Name = "bankNumLabel";
+            bankNumLabel.Size = new Size(103, 24);
+            bankNumLabel.TabIndex = 18;
+            bankNumLabel.Text = "Bank Num";
+            // 
             // RegisterationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(766, 474);
+            ClientSize = new Size(871, 588);
+            Controls.Add(bankNumComboBox);
+            Controls.Add(bankNumLabel);
+            Controls.Add(branchNumComboBox);
+            Controls.Add(branchNumLabel);
             Controls.Add(goBackToMainButton);
             Controls.Add(signConfirmButton);
             Controls.Add(ssnTextBox);
@@ -264,5 +320,9 @@
         private Label ssnLabel;
         private Button signConfirmButton;
         private Button goBackToMainButton;
+        private ComboBox branchNumComboBox;
+        private Label branchNumLabel;
+        private ComboBox bankNumComboBox;
+        private Label bankNumLabel;
     }
 }
