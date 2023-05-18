@@ -53,5 +53,17 @@ namespace BankSystemGUI
         {
             Application.Run(new CustomerListEmployee());
         }
+
+        private void employeeProfileLabel_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openUpdateEmployeeDetailsForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openUpdateEmployeeDetailsForm()
+        {
+            Application.Run(new UpdateEmployeeDetails());
+        }
     }
 }

@@ -86,5 +86,17 @@ namespace BankSystemGUI
         {
             Application.Run(new ShowLoansAdmin());
         }
+
+        private void profileInfoLabel_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openUpdateAdminDetailsForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openUpdateAdminDetailsForm()
+        {
+            Application.Run(new UpdateAdminDetails());
+        }
     }
 }

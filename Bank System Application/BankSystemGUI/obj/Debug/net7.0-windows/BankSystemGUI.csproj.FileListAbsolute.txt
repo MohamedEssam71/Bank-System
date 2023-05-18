@@ -34,3 +34,9 @@ H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.ShowLoansEmployee.resources
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerListEmployee.resources
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.ShowLoansAdmin.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.UpdateCustomerDetails.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.UpdateEmployeeDetails.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.UpdateAdminDetails.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.AddAccountCustomer.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.CustomerAccountListControl.resources
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.ShowAccountCustomer.resources

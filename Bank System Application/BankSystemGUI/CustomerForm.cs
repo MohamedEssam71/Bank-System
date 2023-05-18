@@ -53,5 +53,42 @@ namespace BankSystemGUI
         {
             Application.Run(new ShowLoansCustomer());
         }
+
+        private void profilePicCustomerLabel_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openUdpateProfileForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openUdpateProfileForm()
+        {
+            Application.Run(new UpdateCustomerDetails());
+        }
+
+        private void addAccountButton_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openAddAccountForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openAddAccountForm()
+        {
+            Application.Run(new AddAccountCustomer());
+        }
+
+        private void showAccountButton_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openShowAccountForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openShowAccountForm()
+        {
+            Application.Run(new ShowAccountCustomer());
+        }
+
     }
 }

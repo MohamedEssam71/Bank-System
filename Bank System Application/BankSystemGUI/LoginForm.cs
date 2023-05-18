@@ -33,7 +33,7 @@ namespace BankSystemGUI
 
         private void clearFieldsLabel_Click(object sender, EventArgs e)
         {
-            usernameLoginTextBox.Clear();
+            ssnLoginTextBox.Clear();
             passwordLoginTextBox.Clear();
         }
 
@@ -46,22 +46,22 @@ namespace BankSystemGUI
             else
             {
                 // Check DataBase
-                if (usernameLoginTextBox.Text == "admin" && passwordLoginTextBox.Text == "admin")
+                if (ssnLoginTextBox.Text == "admin" && passwordLoginTextBox.Text == "admin")
                 {
                     th = new Thread(openAdminForm);
                 }
-                else if (usernameLoginTextBox.Text == "employee" && passwordLoginTextBox.Text == "employee")
+                else if (ssnLoginTextBox.Text == "employee" && passwordLoginTextBox.Text == "employee")
                 {
                     th = new Thread(openEmployeeForm);
                 }
-                else if (usernameLoginTextBox.Text == "customer" && passwordLoginTextBox.Text == "customer")
+                else if (ssnLoginTextBox.Text == "customer" && passwordLoginTextBox.Text == "customer")
                 {
                     th = new Thread(openCustomerForm);
                 }
                 else
                 {
                     MessageBox.Show("Username or Password is incorrect !", "Error");
-                    usernameLoginTextBox.Clear();
+                    ssnLoginTextBox.Clear();
                     passwordLoginTextBox.Clear();
                     return;
                 }
@@ -69,12 +69,12 @@ namespace BankSystemGUI
                 th.Start();
                 this.Close();
             }
-            
+
         }
         private bool checkIfFill()
         {
-            if(usernameLoginTextBox.TextLength == 0 || passwordLoginTextBox.TextLength == 0) 
-            { 
+            if (ssnLoginTextBox.TextLength == 0 || passwordLoginTextBox.TextLength == 0)
+            {
                 return false;
             }
             return true;
@@ -92,5 +92,9 @@ namespace BankSystemGUI
             Application.Run(new AdminForm());
         }
 
+        private void ssnLoginTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

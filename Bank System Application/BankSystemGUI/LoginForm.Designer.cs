@@ -38,7 +38,7 @@
             loginConfirmButton = new Button();
             clearFieldsLabel = new Label();
             goBackToMainLabel = new Label();
-            usernameLoginTextBox = new TextBox();
+            ssnLoginTextBox = new TextBox();
             passwordLoginTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)loginPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)avatarPictureBox).BeginInit();
@@ -139,15 +139,16 @@
             goBackToMainLabel.Text = "Back to Main";
             goBackToMainLabel.Click += goBackToMainLabel_Click;
             // 
-            // usernameLoginTextBox
+            // ssnLoginTextBox
             // 
-            usernameLoginTextBox.BorderStyle = BorderStyle.None;
-            usernameLoginTextBox.Cursor = Cursors.IBeam;
-            usernameLoginTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            usernameLoginTextBox.Location = new Point(93, 149);
-            usernameLoginTextBox.Name = "usernameLoginTextBox";
-            usernameLoginTextBox.Size = new Size(305, 27);
-            usernameLoginTextBox.TabIndex = 8;
+            ssnLoginTextBox.BorderStyle = BorderStyle.None;
+            ssnLoginTextBox.Cursor = Cursors.IBeam;
+            ssnLoginTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ssnLoginTextBox.Location = new Point(93, 149);
+            ssnLoginTextBox.Name = "ssnLoginTextBox";
+            ssnLoginTextBox.Size = new Size(305, 27);
+            ssnLoginTextBox.TabIndex = 8;
+            ssnLoginTextBox.TextChanged += ssnLoginTextBox_TextChanged;
             // 
             // passwordLoginTextBox
             // 
@@ -167,7 +168,7 @@
             BackColor = SystemColors.Window;
             ClientSize = new Size(710, 477);
             Controls.Add(passwordLoginTextBox);
-            Controls.Add(usernameLoginTextBox);
+            Controls.Add(ssnLoginTextBox);
             Controls.Add(goBackToMainLabel);
             Controls.Add(clearFieldsLabel);
             Controls.Add(loginConfirmButton);
@@ -198,7 +199,7 @@
         private Button loginConfirmButton;
         private Label clearFieldsLabel;
         private Label goBackToMainLabel;
-        private TextBox usernameLoginTextBox;
+        private TextBox ssnLoginTextBox;
         private TextBox passwordLoginTextBox;
     }
 }

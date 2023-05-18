@@ -64,14 +64,14 @@
             CustomerListFlowControlPanel.BackColor = SystemColors.Control;
             CustomerListFlowControlPanel.Location = new Point(370, 0);
             CustomerListFlowControlPanel.Name = "CustomerListFlowControlPanel";
-            CustomerListFlowControlPanel.Size = new Size(725, 472);
+            CustomerListFlowControlPanel.Size = new Size(725, 488);
             CustomerListFlowControlPanel.TabIndex = 1;
             // 
             // addCustomer
             // 
             addCustomer.Cursor = Cursors.Hand;
             addCustomer.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            addCustomer.Location = new Point(85, 372);
+            addCustomer.Location = new Point(83, 393);
             addCustomer.Name = "addCustomer";
             addCustomer.Size = new Size(193, 43);
             addCustomer.TabIndex = 2;
@@ -84,7 +84,7 @@
             customerNameLabel.AutoSize = true;
             customerNameLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             customerNameLabel.ForeColor = Color.Peru;
-            customerNameLabel.Location = new Point(37, 111);
+            customerNameLabel.Location = new Point(36, 116);
             customerNameLabel.Name = "customerNameLabel";
             customerNameLabel.Size = new Size(68, 24);
             customerNameLabel.TabIndex = 3;
@@ -95,7 +95,7 @@
             customerNameTextBox.BorderStyle = BorderStyle.None;
             customerNameTextBox.Cursor = Cursors.IBeam;
             customerNameTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            customerNameTextBox.Location = new Point(109, 112);
+            customerNameTextBox.Location = new Point(108, 117);
             customerNameTextBox.Name = "customerNameTextBox";
             customerNameTextBox.Size = new Size(227, 25);
             customerNameTextBox.TabIndex = 4;
@@ -104,7 +104,7 @@
             // 
             customerNamePanel.BackColor = Color.Black;
             customerNamePanel.ForeColor = Color.Black;
-            customerNamePanel.Location = new Point(37, 138);
+            customerNamePanel.Location = new Point(36, 143);
             customerNamePanel.Name = "customerNamePanel";
             customerNamePanel.Size = new Size(302, 1);
             customerNamePanel.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             customerSsnPanel.BackColor = Color.Black;
             customerSsnPanel.ForeColor = Color.Black;
-            customerSsnPanel.Location = new Point(37, 203);
+            customerSsnPanel.Location = new Point(36, 208);
             customerSsnPanel.Name = "customerSsnPanel";
             customerSsnPanel.Size = new Size(302, 1);
             customerSsnPanel.TabIndex = 8;
@@ -123,7 +123,7 @@
             customerSsnTextBox.BorderStyle = BorderStyle.None;
             customerSsnTextBox.Cursor = Cursors.IBeam;
             customerSsnTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            customerSsnTextBox.Location = new Point(109, 177);
+            customerSsnTextBox.Location = new Point(108, 182);
             customerSsnTextBox.Name = "customerSsnTextBox";
             customerSsnTextBox.Size = new Size(227, 25);
             customerSsnTextBox.TabIndex = 7;
@@ -133,7 +133,7 @@
             customerSsnLabel.AutoSize = true;
             customerSsnLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             customerSsnLabel.ForeColor = Color.Peru;
-            customerSsnLabel.Location = new Point(37, 176);
+            customerSsnLabel.Location = new Point(36, 181);
             customerSsnLabel.Name = "customerSsnLabel";
             customerSsnLabel.Size = new Size(53, 24);
             customerSsnLabel.TabIndex = 6;
@@ -143,7 +143,7 @@
             // 
             customerPhonePanel.BackColor = Color.Black;
             customerPhonePanel.ForeColor = Color.Black;
-            customerPhonePanel.Location = new Point(37, 267);
+            customerPhonePanel.Location = new Point(36, 272);
             customerPhonePanel.Name = "customerPhonePanel";
             customerPhonePanel.Size = new Size(302, 1);
             customerPhonePanel.TabIndex = 11;
@@ -153,7 +153,7 @@
             customerPhoneTextBox.BorderStyle = BorderStyle.None;
             customerPhoneTextBox.Cursor = Cursors.IBeam;
             customerPhoneTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            customerPhoneTextBox.Location = new Point(109, 241);
+            customerPhoneTextBox.Location = new Point(108, 246);
             customerPhoneTextBox.Name = "customerPhoneTextBox";
             customerPhoneTextBox.Size = new Size(227, 25);
             customerPhoneTextBox.TabIndex = 10;
@@ -163,7 +163,7 @@
             customerPhoneLabel.AutoSize = true;
             customerPhoneLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             customerPhoneLabel.ForeColor = Color.Peru;
-            customerPhoneLabel.Location = new Point(37, 240);
+            customerPhoneLabel.Location = new Point(36, 245);
             customerPhoneLabel.Name = "customerPhoneLabel";
             customerPhoneLabel.Size = new Size(71, 24);
             customerPhoneLabel.TabIndex = 9;
@@ -173,7 +173,7 @@
             // 
             customerAddressPanel.BackColor = Color.Black;
             customerAddressPanel.ForeColor = Color.Black;
-            customerAddressPanel.Location = new Point(37, 332);
+            customerAddressPanel.Location = new Point(36, 337);
             customerAddressPanel.Name = "customerAddressPanel";
             customerAddressPanel.Size = new Size(302, 1);
             customerAddressPanel.TabIndex = 14;
@@ -183,7 +183,7 @@
             customerAdderssTextBox.BorderStyle = BorderStyle.None;
             customerAdderssTextBox.Cursor = Cursors.IBeam;
             customerAdderssTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            customerAdderssTextBox.Location = new Point(133, 306);
+            customerAdderssTextBox.Location = new Point(132, 311);
             customerAdderssTextBox.Name = "customerAdderssTextBox";
             customerAdderssTextBox.Size = new Size(203, 25);
             customerAdderssTextBox.TabIndex = 13;
@@ -193,7 +193,7 @@
             customerAddressLabel.AutoSize = true;
             customerAddressLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             customerAddressLabel.ForeColor = Color.Peru;
-            customerAddressLabel.Location = new Point(37, 305);
+            customerAddressLabel.Location = new Point(36, 310);
             customerAddressLabel.Name = "customerAddressLabel";
             customerAddressLabel.Size = new Size(90, 24);
             customerAddressLabel.TabIndex = 12;
@@ -204,7 +204,7 @@
             backToAdminLabel.AutoSize = true;
             backToAdminLabel.Cursor = Cursors.Hand;
             backToAdminLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            backToAdminLabel.Location = new Point(109, 430);
+            backToAdminLabel.Location = new Point(107, 451);
             backToAdminLabel.Name = "backToAdminLabel";
             backToAdminLabel.Size = new Size(147, 24);
             backToAdminLabel.TabIndex = 15;
@@ -216,7 +216,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1095, 472);
+            ClientSize = new Size(1095, 488);
             Controls.Add(backToAdminLabel);
             Controls.Add(customerAddressPanel);
             Controls.Add(customerAdderssTextBox);

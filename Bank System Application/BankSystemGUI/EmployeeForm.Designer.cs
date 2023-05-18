@@ -34,6 +34,7 @@
             employeePanelPictureBox = new PictureBox();
             showLoansEmployeeButton = new Button();
             showCustomerListButton = new Button();
+            employeeProfileLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)employeePanelPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -102,12 +103,26 @@
             showCustomerListButton.UseVisualStyleBackColor = false;
             showCustomerListButton.Click += showCustomerListButton_Click;
             // 
+            // employeeProfileLabel
+            // 
+            employeeProfileLabel.AutoSize = true;
+            employeeProfileLabel.Cursor = Cursors.Hand;
+            employeeProfileLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            employeeProfileLabel.ForeColor = SystemColors.ControlText;
+            employeeProfileLabel.Location = new Point(107, 24);
+            employeeProfileLabel.Name = "employeeProfileLabel";
+            employeeProfileLabel.Size = new Size(84, 24);
+            employeeProfileLabel.TabIndex = 5;
+            employeeProfileLabel.Text = "Profile Info";
+            employeeProfileLabel.Click += employeeProfileLabel_Click;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(800, 421);
+            Controls.Add(employeeProfileLabel);
             Controls.Add(showCustomerListButton);
             Controls.Add(showLoansEmployeeButton);
             Controls.Add(employeePanelPictureBox);
@@ -128,5 +143,6 @@
         private PictureBox employeePanelPictureBox;
         private Button showLoansEmployeeButton;
         private Button showCustomerListButton;
+        private Label employeeProfileLabel;
     }
 }
