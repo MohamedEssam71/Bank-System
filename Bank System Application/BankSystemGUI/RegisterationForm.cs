@@ -42,7 +42,7 @@ namespace BankSystemGUI
                 con.Open();
                 if (con.State == ConnectionState.Open)
                 {
-                    string query = "insert into Customer(ssn, name, password, type, phone, address) " +
+                    string query = "insert into Person(ssn, name, password, type, phone, address) " +
                         "values('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() + 
                         "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() + 
                         "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "')";
