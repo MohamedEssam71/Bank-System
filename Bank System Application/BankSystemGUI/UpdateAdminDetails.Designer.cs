@@ -55,7 +55,7 @@
             profileLabel.AutoSize = true;
             profileLabel.Font = new Font("Bauhaus 93", 24F, FontStyle.Bold, GraphicsUnit.Point);
             profileLabel.ForeColor = SystemColors.Highlight;
-            profileLabel.Location = new Point(32, 23);
+            profileLabel.Location = new Point(32, 24);
             profileLabel.Name = "profileLabel";
             profileLabel.Size = new Size(283, 45);
             profileLabel.TabIndex = 0;
@@ -209,6 +209,7 @@
             // bankNumComboBox
             // 
             bankNumComboBox.BackColor = Color.OldLace;
+            bankNumComboBox.Cursor = Cursors.Hand;
             bankNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             bankNumComboBox.FormattingEnabled = true;
             bankNumComboBox.Location = new Point(144, 363);
