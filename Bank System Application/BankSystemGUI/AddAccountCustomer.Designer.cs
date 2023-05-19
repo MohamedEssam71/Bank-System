@@ -32,7 +32,7 @@
             addAccountLabel = new Label();
             backToCustomerPanelLabel = new Label();
             amountAccountLabel = new Label();
-            amountAccountTextBox = new TextBox();
+            balanceAccountTextBox = new TextBox();
             amountAccountPanel = new Panel();
             typeAccountComboBox = new ComboBox();
             typeAccountLabel = new Label();
@@ -73,15 +73,15 @@
             amountAccountLabel.TabIndex = 2;
             amountAccountLabel.Text = "Balance:";
             // 
-            // amountAccountTextBox
+            // balanceAccountTextBox
             // 
-            amountAccountTextBox.BorderStyle = BorderStyle.None;
-            amountAccountTextBox.Cursor = Cursors.IBeam;
-            amountAccountTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            amountAccountTextBox.Location = new Point(152, 244);
-            amountAccountTextBox.Name = "amountAccountTextBox";
-            amountAccountTextBox.Size = new Size(181, 25);
-            amountAccountTextBox.TabIndex = 3;
+            balanceAccountTextBox.BorderStyle = BorderStyle.None;
+            balanceAccountTextBox.Cursor = Cursors.IBeam;
+            balanceAccountTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            balanceAccountTextBox.Location = new Point(152, 244);
+            balanceAccountTextBox.Name = "balanceAccountTextBox";
+            balanceAccountTextBox.Size = new Size(181, 25);
+            balanceAccountTextBox.TabIndex = 3;
             // 
             // amountAccountPanel
             // 
@@ -136,13 +136,14 @@
             Controls.Add(typeAccountLabel);
             Controls.Add(typeAccountComboBox);
             Controls.Add(amountAccountPanel);
-            Controls.Add(amountAccountTextBox);
+            Controls.Add(balanceAccountTextBox);
             Controls.Add(amountAccountLabel);
             Controls.Add(backToCustomerPanelLabel);
             Controls.Add(addAccountLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddAccountCustomer";
             Text = "Add Account";
+            Load += AddAccountCustomer_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,7 +153,7 @@
         private Label addAccountLabel;
         private Label backToCustomerPanelLabel;
         private Label amountAccountLabel;
-        private TextBox amountAccountTextBox;
+        private TextBox balanceAccountTextBox;
         private Panel amountAccountPanel;
         private ComboBox typeAccountComboBox;
         private Label typeAccountLabel;

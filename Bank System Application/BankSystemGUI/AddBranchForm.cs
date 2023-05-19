@@ -46,14 +46,14 @@ namespace BankSystemGUI
             {
                 //Code to add Bank
                 MessageBox.Show("Branch Added Successfully", "Well Done");
-                nameBranchTextBox.Clear();
+                bankCodeBranchTextBox.Clear();
                 codeBranchTextBox.Clear();
                 addressBranchTextBox.Clear();
             }
         }
         private bool checkIfAddBankFill()
         {
-            if (nameBranchTextBox.TextLength == 0 || codeBranchTextBox.TextLength == 0
+            if (bankCodeBranchTextBox.TextLength == 0 || codeBranchTextBox.TextLength == 0
                 || addressBranchTextBox.TextLength == 0)
             {
                 return false;

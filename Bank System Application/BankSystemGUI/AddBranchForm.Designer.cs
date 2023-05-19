@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBranchForm));
             AddBranchFormLabel = new Label();
             codeBranchLabel = new Label();
-            branchNameLabel = new Label();
+            branchBankCodeLabel = new Label();
             addressBranchLabel = new Label();
-            nameBranchPanel = new Panel();
+            bankCodeBranchPanel = new Panel();
             codeBranchPanel = new Panel();
             addressBranchPanel = new Panel();
-            nameBranchTextBox = new TextBox();
+            bankCodeBranchTextBox = new TextBox();
             codeBranchTextBox = new TextBox();
             addressBranchTextBox = new TextBox();
             addBranchConfirmButton = new Button();
@@ -65,16 +65,16 @@
             codeBranchLabel.TabIndex = 1;
             codeBranchLabel.Text = "Code:";
             // 
-            // branchNameLabel
+            // branchBankCodeLabel
             // 
-            branchNameLabel.AutoSize = true;
-            branchNameLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            branchNameLabel.ForeColor = Color.Peru;
-            branchNameLabel.Location = new Point(96, 126);
-            branchNameLabel.Name = "branchNameLabel";
-            branchNameLabel.Size = new Size(68, 24);
-            branchNameLabel.TabIndex = 2;
-            branchNameLabel.Text = "Name:";
+            branchBankCodeLabel.AutoSize = true;
+            branchBankCodeLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            branchBankCodeLabel.ForeColor = Color.Peru;
+            branchBankCodeLabel.Location = new Point(96, 126);
+            branchBankCodeLabel.Name = "branchBankCodeLabel";
+            branchBankCodeLabel.Size = new Size(111, 24);
+            branchBankCodeLabel.TabIndex = 2;
+            branchBankCodeLabel.Text = "Bank Code:";
             // 
             // addressBranchLabel
             // 
@@ -87,13 +87,13 @@
             addressBranchLabel.TabIndex = 3;
             addressBranchLabel.Text = "Address:";
             // 
-            // nameBranchPanel
+            // bankCodeBranchPanel
             // 
-            nameBranchPanel.BackColor = Color.Black;
-            nameBranchPanel.Location = new Point(105, 153);
-            nameBranchPanel.Name = "nameBranchPanel";
-            nameBranchPanel.Size = new Size(326, 1);
-            nameBranchPanel.TabIndex = 4;
+            bankCodeBranchPanel.BackColor = Color.Black;
+            bankCodeBranchPanel.Location = new Point(105, 153);
+            bankCodeBranchPanel.Name = "bankCodeBranchPanel";
+            bankCodeBranchPanel.Size = new Size(326, 1);
+            bankCodeBranchPanel.TabIndex = 4;
             // 
             // codeBranchPanel
             // 
@@ -111,16 +111,16 @@
             addressBranchPanel.Size = new Size(326, 1);
             addressBranchPanel.TabIndex = 5;
             // 
-            // nameBranchTextBox
+            // bankCodeBranchTextBox
             // 
-            nameBranchTextBox.BackColor = SystemColors.Window;
-            nameBranchTextBox.BorderStyle = BorderStyle.None;
-            nameBranchTextBox.Cursor = Cursors.IBeam;
-            nameBranchTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            nameBranchTextBox.Location = new Point(162, 126);
-            nameBranchTextBox.Name = "nameBranchTextBox";
-            nameBranchTextBox.Size = new Size(269, 25);
-            nameBranchTextBox.TabIndex = 0;
+            bankCodeBranchTextBox.BackColor = SystemColors.Window;
+            bankCodeBranchTextBox.BorderStyle = BorderStyle.None;
+            bankCodeBranchTextBox.Cursor = Cursors.IBeam;
+            bankCodeBranchTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bankCodeBranchTextBox.Location = new Point(213, 126);
+            bankCodeBranchTextBox.Name = "bankCodeBranchTextBox";
+            bankCodeBranchTextBox.Size = new Size(218, 25);
+            bankCodeBranchTextBox.TabIndex = 0;
             // 
             // codeBranchTextBox
             // 
@@ -180,12 +180,12 @@
             Controls.Add(addBranchConfirmButton);
             Controls.Add(addressBranchTextBox);
             Controls.Add(codeBranchTextBox);
-            Controls.Add(nameBranchTextBox);
+            Controls.Add(bankCodeBranchTextBox);
             Controls.Add(addressBranchPanel);
             Controls.Add(codeBranchPanel);
-            Controls.Add(nameBranchPanel);
+            Controls.Add(bankCodeBranchPanel);
             Controls.Add(addressBranchLabel);
-            Controls.Add(branchNameLabel);
+            Controls.Add(branchBankCodeLabel);
             Controls.Add(codeBranchLabel);
             Controls.Add(AddBranchFormLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -200,12 +200,12 @@
 
         private Label AddBranchFormLabel;
         private Label codeBranchLabel;
-        private Label branchNameLabel;
+        private Label branchBankCodeLabel;
         private Label addressBranchLabel;
-        private Panel nameBranchPanel;
+        private Panel bankCodeBranchPanel;
         private Panel codeBranchPanel;
         private Panel addressBranchPanel;
-        private TextBox nameBranchTextBox;
+        private TextBox bankCodeBranchTextBox;
         private TextBox codeBranchTextBox;
         private TextBox addressBranchTextBox;
         private Button addBranchConfirmButton;

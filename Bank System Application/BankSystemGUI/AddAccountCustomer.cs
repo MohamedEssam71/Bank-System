@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,6 @@ namespace BankSystemGUI
         {
 
             InitializeComponent();
-            populateDropDownLoanList();
 
         }
 
@@ -30,11 +30,26 @@ namespace BankSystemGUI
             // need to get type of account from the DataBase
 
 
-            for (int i = 0; i < 5; ++i)
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
             {
-                typeAccountComboBox.Items.Add("Mohamed");
-            }
+                string query = "SELECT Account.Type from Account inner join Person on " +
+                    "Account.PersonSSN = Person.ssn WHERE Person.BranchBranchNumber = "
+                    + Program.branchNumberGlobal + " and Person.BranchBankCode = " +
+                    Program.bankCodeGlobal + "GROUP BY Account.Type";
+                SqlCommand cmd = new SqlCommand(query, con);
 
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        string result = sqlDataReader.GetString(0);
+                        typeAccountComboBox.Items.Add(result);
+                    }
+                }
+            }
+            con.Close();
         }
 
         private void backToCustomerPanelLabel_Click(object sender, EventArgs e)
@@ -58,8 +73,20 @@ namespace BankSystemGUI
             else
             {
                 //Code to Add new Account with new primary key
+                SqlConnection con = new SqlConnection(Program.ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
+                {
+                    string query = "Insert into Account(Balance, Type, PersonSSN)" +
+                        "Values(" + int.Parse(balanceAccountTextBox.Text) + ", " +
+                        "'" + typeAccountComboBox.Text.ToString() + "', " + 
+                        "'" + Program.ssnGlobal + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
                 MessageBox.Show("Account Added Successfully", "Well Done");
-                amountAccountTextBox.Clear();
+                balanceAccountTextBox.Clear();
                 typeAccountComboBox.Text = "";
 
             }
@@ -67,11 +94,16 @@ namespace BankSystemGUI
         }
         private bool checkIfLoanFill()
         {
-            if (amountAccountTextBox.TextLength == 0 || typeAccountComboBox.Text.Length == 0)
+            if (balanceAccountTextBox.TextLength == 0 || typeAccountComboBox.Text.Length == 0)
             {
                 return false;
             }
             return true;
+        }
+
+        private void AddAccountCustomer_Load(object sender, EventArgs e)
+        {
+            populateDropDownLoanList();
         }
     }
 }
