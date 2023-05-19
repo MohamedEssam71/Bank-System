@@ -1,7 +1,7 @@
-﻿using System;
+using BankSystem;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -12,168 +12,91 @@ using System.Windows.Forms;
 
 namespace BankSystemGUI
 {
-    public partial class RegisterationForm : Form
+    public partial class RequestLoan : Form
     {
         private Thread th;
-        
-        public RegisterationForm()
+        public RequestLoan()
         {
+
             InitializeComponent();
-            populateBankNumCode();
-            if (bankNumComboBox.Text.Length != 0)
-            {
-                branchNumComboBox.Visible = true;
-                branchNumLabel.Visible = true;
-            }
+            populateDropDownLoanList();
+
         }
 
-        private void populateBankNumCode()
+        private void typeLoanComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+        private void populateDropDownLoanList()
         {
             SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT Code from Bank ORDER BY Code";
+                string query = "SELECT Type FROM Loan " +
+                    "WHERE BranchBranchNumber = " + Program.branchNumberGlobal +
+                    "and BranchBankCode = " + Program.bankCodeGlobal;
                 SqlCommand cmd = new SqlCommand(query, con);
-
                 using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
                 {
                     while (sqlDataReader.Read())
                     {
-                        int result = sqlDataReader.GetInt32(0);
-                        bankNumComboBox.Items.Add(result);
+                        typeLoanComboBox.Items.Add((string)sqlDataReader["Type"]);
                     }
                 }
             }
             con.Close();
-        }
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
+            
+            
         }
 
-        private void usernameLabel_Click(object sender, EventArgs e)
+        private void backToCustomerPanelLabel_Click(object sender, EventArgs e)
         {
+            th = new Thread(openCustomerPanelForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+        private void openCustomerPanelForm()
+        {
+            Application.Run(new CustomerForm());
         }
 
-        private void signConfirmButton_Click(object sender, EventArgs e)
+        private void requestConfirmButton_Click(object sender, EventArgs e)
         {
-
-            if (!checkIfRegisterFill())
+            if (!checkIfLoanFill())
             {
                 MessageBox.Show("Fill all the empty places !", "Error");
             }
             else
             {
-                if (!isValidSSN())
+                //Code to send Request
+                /*SqlConnection con = new SqlConnection(Program.ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
                 {
-                    MessageBox.Show("The SSN is used Before, Please Insert a new one", "Error");
+                    string query = "Insert into Loan_Person " +
+                        "Values('" + typeLoanComboBox.Text.ToString() + "', " +
+                        "'" + typeAccountComboBox.Text.ToString() + "', " +
+                        "'" + Program.ssnGlobal + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
                 }
-                else
-                {
-                    SqlConnection con = new SqlConnection(Program.ConString);
-                    con.Open();
-                    if (con.State == ConnectionState.Open)
-                    {
-                        string query = "INSERT INTO Person(ssn, name, password, type, phone, address, " +
-                            "BranchBranchNumber, BranchBankCode) " +
-                            "VALUES ('" + ssnTextBox.Text.ToString() + "', '" + usernameTextBox.Text.ToString() +
-                            "', '" + passwordTextBox.Text.ToString() + "', '" + typeDropDownList.Text.ToString() +
-                            "', '" + phoneTextBox.Text.ToString() + "', '" + addressTextBox.Text.ToString() + "', '"
-                            + branchNumComboBox.Text.ToString() + "', '" + bankNumComboBox.Text.ToString() + "')";
+                con.Close();*/
 
-                        SqlCommand cmd = new SqlCommand(query, con);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registration Complete", "Well Done");
-                        th = new Thread(openMainForm);
-                        th.SetApartmentState(ApartmentState.STA);
-                        th.Start();
-                        this.Close();
-                    }
-                    //con.Close();
-                }
-            }
-        }
-        private bool isValidSSN()
-        {
-            SqlConnection con = new SqlConnection(Program.ConString);
-            con.Open();
-            if (con.State == ConnectionState.Open)
-            {
-                string query = "SELECT ssn FROM Person";
-                SqlCommand cmd = new SqlCommand(query, con);
+                MessageBox.Show("Request Sent Successfully", "Well Done");
+                amountLoanTextBox.Clear();
+                typeLoanComboBox.Text = "";
 
-                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
-                {
-                    while (sqlDataReader.Read())
-                    {
-                        string result = sqlDataReader.GetString(0);
-                        if(result == ssnTextBox.Text)
-                        {
-                            return false;
-                        }
-                    }
-                }
             }
-            con.Close();
-            return true;
+
         }
-        private bool checkIfRegisterFill()
+        private bool checkIfLoanFill()
         {
-            if (ssnTextBox.Text.Length == 0 || usernameTextBox.Text.Length == 0
-                || passwordTextBox.Text.Length == 0 || phoneTextBox.Text.Length == 0
-                || addressTextBox.TextLength == 0 || typeDropDownList.Text.Length == 0)
+            if (amountLoanTextBox.TextLength == 0 || typeLoanComboBox.Text.Length == 0)
             {
                 return false;
             }
             return true;
-        }
-
-        private void goBackToMainButton_Click(object sender, EventArgs e)
-        {
-            th = new Thread(openMainForm);
-            th.SetApartmentState(ApartmentState.STA);
-            th.Start();
-            this.Close();
-        }
-        private void openMainForm()
-        {
-            Application.Run(new MainPage());
-        }
-
-        private void bankNumComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            branchNumComboBox.Items.Clear();
-
-            if (bankNumComboBox.Text.Length != 0)
-            {
-                branchNumComboBox.Visible = true;
-                branchNumLabel.Visible = true;
-            }
-
-            SqlConnection con = new SqlConnection(Program.ConString);
-            con.Open();
-            if (con.State == ConnectionState.Open)
-            {
-                string query = "SELECT BranchNumber from Branch WHERE BankCode = "
-                    + bankNumComboBox.Text + " ORDER BY BranchNumber";
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
-                {
-                    while (sqlDataReader.Read())
-                    {
-                        int result = sqlDataReader.GetInt32(0);
-                        branchNumComboBox.Items.Add(result);
-                    }
-                }
-            }
-            con.Close();
-        }
-
-        private void ssnTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
