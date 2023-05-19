@@ -41,9 +41,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(19, 22);
+            pictureBox1.Location = new Point(13, 13);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(104, 100);
+            pictureBox1.Size = new Size(121, 139);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -63,7 +63,7 @@
             customerDescriptionLabel.Font = new Font("Bahnschrift", 11F, FontStyle.Regular, GraphicsUnit.Point);
             customerDescriptionLabel.Location = new Point(152, 52);
             customerDescriptionLabel.Name = "customerDescriptionLabel";
-            customerDescriptionLabel.Size = new Size(566, 87);
+            customerDescriptionLabel.Size = new Size(566, 100);
             customerDescriptionLabel.TabIndex = 2;
             // 
             // picPanel
@@ -73,13 +73,13 @@
             picPanel.Dock = DockStyle.Left;
             picPanel.Location = new Point(0, 0);
             picPanel.Name = "picPanel";
-            picPanel.Size = new Size(149, 141);
+            picPanel.Size = new Size(149, 163);
             picPanel.TabIndex = 3;
             // 
             // separationPanel
             // 
             separationPanel.BackColor = Color.Peru;
-            separationPanel.Location = new Point(3, 136);
+            separationPanel.Location = new Point(3, 158);
             separationPanel.Name = "separationPanel";
             separationPanel.Size = new Size(718, 5);
             separationPanel.TabIndex = 4;
@@ -94,7 +94,7 @@
             Controls.Add(customerDescriptionLabel);
             Controls.Add(customerNameLabel);
             Name = "CustomerListControl";
-            Size = new Size(721, 141);
+            Size = new Size(721, 163);
             Load += CustomerListControl_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             picPanel.ResumeLayout(false);

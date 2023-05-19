@@ -5,6 +5,8 @@ namespace BankSystemGUI
         public static string ConString = "Data Source=DESKTOP-V6573KH;Initial Catalog=BankSystem;Integrated Security=True";
         public static string ssnGlobal = "";
         public static string passwordGlobal = "";
+        public static int bankCodeGlobal = 0;
+        public static int branchNumberGlobal = 0;
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

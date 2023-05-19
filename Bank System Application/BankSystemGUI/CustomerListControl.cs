@@ -21,6 +21,8 @@ namespace BankSystemGUI
         private string ssn;
         private string phone;
         private string address;
+        private int branchNumber;
+        private int bankCode;
 
         private void CustomerListControl_Load(object sender, EventArgs e)
         {
@@ -28,6 +30,11 @@ namespace BankSystemGUI
         }
 
         private void customerNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void separationPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -51,6 +58,17 @@ namespace BankSystemGUI
         {
             get { return address; }
             set { this.address = value; customerDescriptionLabel.Text += ("\nAddress: " + value); }
+        }
+
+        public int BankCode
+        {
+            get { return bankCode; }
+            set { this.bankCode = value; customerDescriptionLabel.Text += "\nBank Code: " + value; }
+        }
+        public int BranchNumber
+        {
+            get { return branchNumber; }
+            set { this.branchNumber = value; customerDescriptionLabel.Text += ",   Branch Number: " + value; }
         }
     }
 }
