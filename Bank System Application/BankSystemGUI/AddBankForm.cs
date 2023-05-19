@@ -49,12 +49,11 @@ namespace BankSystemGUI
                 con.Open();
                 if (con.State == ConnectionState.Open)
                 {
-                    string query = "INSERT INTO Bank(name, address) VALUES ('" + nameBankTextBox.Text.ToString() +"', '" + addressBankTextBox.Text.ToString() + "')";
+                    string query = "INSERT INTO Bank(name, address) VALUES ('" + nameBankTextBox.Text.ToString() + "', '" + addressBankTextBox.Text.ToString() + "')";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bank Added Successfully", "Well Done");
                     nameBankTextBox.Clear();
-                    codeBankTextBox.Clear();
                     addressBankTextBox.Clear();
                 }
                 con.Close();
@@ -62,8 +61,7 @@ namespace BankSystemGUI
         }
         private bool checkIfAddBankFill()
         {
-            if (nameBankTextBox.TextLength == 0 || codeBankTextBox.TextLength == 0
-                || addressBankTextBox.TextLength == 0)
+            if (nameBankTextBox.TextLength == 0 || addressBankTextBox.TextLength == 0)
             {
                 return false;
             }

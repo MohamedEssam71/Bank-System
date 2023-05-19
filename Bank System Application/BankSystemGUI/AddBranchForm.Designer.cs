@@ -61,9 +61,9 @@
             codeBranchLabel.ForeColor = Color.Peru;
             codeBranchLabel.Location = new Point(96, 219);
             codeBranchLabel.Name = "codeBranchLabel";
-            codeBranchLabel.Size = new Size(60, 24);
+            codeBranchLabel.Size = new Size(127, 24);
             codeBranchLabel.TabIndex = 1;
-            codeBranchLabel.Text = "Code:";
+            codeBranchLabel.Text = "Branch Num:";
             // 
             // branchBankCodeLabel
             // 
@@ -128,9 +128,9 @@
             codeBranchTextBox.BorderStyle = BorderStyle.None;
             codeBranchTextBox.Cursor = Cursors.IBeam;
             codeBranchTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            codeBranchTextBox.Location = new Point(162, 218);
+            codeBranchTextBox.Location = new Point(229, 218);
             codeBranchTextBox.Name = "codeBranchTextBox";
-            codeBranchTextBox.Size = new Size(269, 25);
+            codeBranchTextBox.Size = new Size(202, 25);
             codeBranchTextBox.TabIndex = 6;
             codeBranchTextBox.TextChanged += codeBankTextBox_TextChanged;
             // 
