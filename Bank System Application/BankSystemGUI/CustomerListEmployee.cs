@@ -27,7 +27,6 @@ namespace BankSystemGUI
         }
         private void populateCustomers()
         {   
-            List<CustomerListControl> customerListControls = new List<CustomerListControl>();
             if (CustomerListFlowControlPanel.Controls.Count > 0)
             {
                 CustomerListFlowControlPanel.Controls.Clear();

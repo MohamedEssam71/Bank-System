@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
@@ -21,21 +22,39 @@ namespace BankSystemGUI
 
         private string type;
         private int number;
-        private int amount;
+        private string state;
+        private SqlMoney amount;
+        private int branchNumber;
+        private int bankCode;
         public string Type
         {
             get { return type; }
-            set { this.type = value; loanTypeLabel.Text = value; }
+            set { this.type = value; loanTypeLabel.Text = value + " Loan"; }
+        }
+        public string State
+        {
+            get { return state; }
+            set { this.state = value; loanDescriptionLabel.Text += ",   State: " + value; }
         }
         public int Number
         {
             get { return number; }
             set { this.number = value; loanDescriptionLabel.Text += ("Code: " + value); }
         }
-        public int Amount
+        public SqlMoney Amount
         {
             get { return amount; }
-            set { this.amount = value; loanDescriptionLabel.Text += ("\nAmount: " + value); }
+            set { this.amount = value; loanDescriptionLabel.Text += ("\nAmount: " + value + "$"); }
+        }
+        public int BankCode
+        {
+            get { return bankCode; }
+            set { this.bankCode = value; loanDescriptionLabel.Text += "\nBank Code: " + value; }
+        }
+        public int BranchNumber
+        {
+            get { return branchNumber; }
+            set { this.branchNumber = value; loanDescriptionLabel.Text += ",   Branch Number: " + value; }
         }
 
     }

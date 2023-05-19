@@ -40,6 +40,7 @@
             employeeStateLoanPanel = new Panel();
             employeeStateLoanLabel = new Label();
             confirmStateLoanButton = new Button();
+            reloadLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)employeeLoansPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -156,12 +157,25 @@
             confirmStateLoanButton.UseVisualStyleBackColor = true;
             confirmStateLoanButton.Click += confirmStateLoanButton_Click;
             // 
+            // reloadLabel
+            // 
+            reloadLabel.AutoSize = true;
+            reloadLabel.Cursor = Cursors.Hand;
+            reloadLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            reloadLabel.Location = new Point(214, 27);
+            reloadLabel.Name = "reloadLabel";
+            reloadLabel.Size = new Size(98, 24);
+            reloadLabel.TabIndex = 0;
+            reloadLabel.Text = "Reload Loans";
+            reloadLabel.Click += reloadLabel_Click;
+            // 
             // ShowLoansEmployee
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(933, 450);
+            Controls.Add(reloadLabel);
             Controls.Add(confirmStateLoanButton);
             Controls.Add(employeeStateLoanPanel);
             Controls.Add(employeeStateLoanLabel);
@@ -195,5 +209,6 @@
         private Panel employeeStateLoanPanel;
         private Label employeeStateLoanLabel;
         private Button confirmStateLoanButton;
+        private Label reloadLabel;
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,12 +42,91 @@ namespace BankSystemGUI
             }
             else
             {
-                //Code to change database loan attribute to accept, reject, pending
-                MessageBox.Show("Loan Action confirmed Successfully", "Well Done");
-                employeeStateLoanComboBox.Text = string.Empty;
-                emplyeeNumberLoanTextBox.Clear();
+                if (!isValidLoanNumber())
+                {
+                    MessageBox.Show("Loan Number isn't Found !", "Error");
+                }
+                else
+                {
+                    //Code to change database loan attribute to accept, reject, pending
+                    if (!isPendingLoan())
+                    {
+                        MessageBox.Show("This Loan is not in pending state !", "Error");
+                    }
+                    else
+                    {
+                        SqlConnection con = new SqlConnection(Program.ConString);
+                        con.Open();
+                        if (con.State == ConnectionState.Open)
+                        {
+                            string query = "UPDATE Loan Set status = '" +
+                                employeeStateLoanComboBox.Text.ToString() + "' " +
+                                "WHERE LoanNumber = " + int.Parse(emplyeeNumberLoanTextBox.Text);
+                            SqlCommand cmd = new SqlCommand(query, con);
+                            cmd.ExecuteNonQuery();
+                        }
+                        con.Close();
+
+                        MessageBox.Show("Loan Action confirmed Successfully", "Well Done");
+                        employeeStateLoanComboBox.Text = string.Empty;
+                        emplyeeNumberLoanTextBox.Clear();
+                    }
+                }
             }
 
+        }
+        private bool isValidLoanNumber()
+        {
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT LoanNumber FROM Loan where " +
+                    "BranchBranchNumber = " + Program.branchNumberGlobal + " " +
+                    "and BranchBankCode = " + Program.bankCodeGlobal;
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int result = sqlDataReader.GetInt32(0);
+                        if (result == int.Parse(emplyeeNumberLoanTextBox.Text))
+                        {
+                            con.Close();
+                            return true;
+                        }
+                    }
+                }
+            }
+            con.Close();
+            return false;
+        }
+        private bool isPendingLoan()
+        {
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT status FROM Loan where LoanNumber = " +
+                    int.Parse(emplyeeNumberLoanTextBox.Text);
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        string result = sqlDataReader.GetString(0);
+                        if (result == "Pending")
+                        {
+                            con.Close();
+                            return true;
+                        }
+                    }
+                }
+            }
+            con.Close();
+            return false;
         }
         private bool checkIfFill()
         {
@@ -62,20 +143,70 @@ namespace BankSystemGUI
         }
         private void populateLoans()
         {
-            // load loans that from the same branch and is pending to make employee choose from them.
-            for (int i = 0; i < 5; i++)
+            if (employeeLoansFlowControl.Controls.Count > 0)
             {
-                CustomerLoanListControl loansControl = new CustomerLoanListControl();
-                loansControl.Type = "Industrial Loan";
-                loansControl.Number = 3333;
-                loansControl.Amount = 1234;
-                loans.Add(loansControl);
-                employeeLoansFlowControl.Controls.Add(loansControl);
-
+                employeeLoansFlowControl.Controls.Clear();
             }
+
+            // load loans that from the same branch and is pending to make employee choose from them.
+
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                // loan from the same branch and bank as the employee.
+                string query = "SELECT * from Loan where BranchBankCode IN (" +
+                    "select BranchBankCode from Person where ssn = '" + Program.ssnGlobal + "')" +
+                    "and BranchBranchNumber IN (select BranchBranchNumber from Person where " +
+                    "ssn = '" + Program.ssnGlobal + "') and status = 'Pending'";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int loanNumberResult = sqlDataReader.GetInt32(0);
+                        string typeResult = sqlDataReader.GetString(1);
+                        SqlMoney amountResult = sqlDataReader.GetSqlMoney(2);
+                        int bankCodeResult = sqlDataReader.GetInt32(5);
+                        int branchNumberResult = sqlDataReader.GetInt32(4);
+
+
+                        CustomerLoanListControl loan = new CustomerLoanListControl();
+                        loan.Type = typeResult;
+                        loan.Number = loanNumberResult;
+                        loan.State = "Pending";
+                        loan.Amount = amountResult;
+                        loan.BankCode = bankCodeResult;
+                        loan.BranchNumber = branchNumberResult;
+                        loans.Add(loan);
+                    }
+                }
+            }
+            con.Close();
+
+            if (loans.Count <= 0)
+            {
+                this.Width = 359;
+                employeeLoansFlowControl.Visible = false;
+            }
+            else
+            {
+                this.Width = 951;
+                for (int i = 0; i < loans.Count; i++)
+                {
+                    employeeLoansFlowControl.Controls.Add(loans[i]);
+                }
+            }
+
         }
 
         private void ShowLoansEmployee_Load(object sender, EventArgs e)
+        {
+            populateLoans();
+        }
+
+        private void reloadLabel_Click(object sender, EventArgs e)
         {
             populateLoans();
         }
