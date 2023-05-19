@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -94,16 +94,7 @@ namespace BankSystemGUI
                     con.Open();
                     if (con.State == ConnectionState.Open)
                     {
-                        string InitialQuery = "";
-                        SqlCommand tmpCmd = new SqlCommand(InitialQuery, con);
-                        using (SqlDataReader sqlDataReader = tmpCmd.ExecuteReader())
-                        {
-                            while (sqlDataReader.Read())
-                            {
-
-                            }
-                        }
-                        string query = "";
+                        string query = "DELETE FROM Account WHERE PersonSSN = " + Program.ssnGlobal + " AND AccountNumber = " + "'" + accNumTextBox.Text.ToString() + "'";
                         SqlCommand cmd = new SqlCommand(query, con);
                         cmd.ExecuteNonQuery();
 
