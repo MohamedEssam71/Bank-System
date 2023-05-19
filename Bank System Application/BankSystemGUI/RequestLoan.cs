@@ -70,22 +70,32 @@ namespace BankSystemGUI
             else
             {
                 //Code to send Request
-                /*SqlConnection con = new SqlConnection(Program.ConString);
+                SqlConnection con = new SqlConnection(Program.ConString);
                 con.Open();
                 if (con.State == ConnectionState.Open)
                 {
-                    string query = "Insert into Loan_Person " +
-                        "Values('" + typeLoanComboBox.Text.ToString() + "', " +
-                        "'" + typeAccountComboBox.Text.ToString() + "', " +
-                        "'" + Program.ssnGlobal + "')";
+                    string InitialQuery = "SELECT LoanNumber FROM Loan WHERE Type = '" + typeLoanComboBox.Text.ToString() + "'";
+                    SqlCommand tmpCmd = new SqlCommand(InitialQuery, con);
+                    int LoanNumber = 0;
+                    using (SqlDataReader sqlDataReader = tmpCmd.ExecuteReader())
+                    {
+                        while (sqlDataReader.Read())
+                        {
+                            LoanNumber = (int)sqlDataReader["LoanNumber"];
+                        }
+                    }
+
+                    string query = "Insert into Loan_Person(amount, status, PersonSSN, LoanLoanNumber) " +
+                        "Values('" + amountLoanTextBox.Text.ToString() + "', " +
+                        "'" + "pending" + "', '" + Program.ssnGlobal + "', " + LoanNumber + ")";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
-                }
-                con.Close();*/
 
-                MessageBox.Show("Request Sent Successfully", "Well Done");
-                amountLoanTextBox.Clear();
-                typeLoanComboBox.Text = "";
+                    MessageBox.Show("Request Sent Successfully", "Well Done");
+                    amountLoanTextBox.Clear();
+                    typeLoanComboBox.Text = "";
+                }
+                con.Close();
 
             }
 
