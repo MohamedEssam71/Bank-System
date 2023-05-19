@@ -37,7 +37,7 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT L.LoanNumber, L.Type, LP.Amount FROM Loan L INNER JOIN Loan_Person LP ON " +
+                string query = "SELECT L.LoanNumber, L.Type, LP.Amount,LP.Status FROM Loan L INNER JOIN Loan_Person LP ON " +
                     "L.LoanNumber = LP.LoanLoanNumber AND LP.PersonSSN = " + Program.ssnGlobal;
                 /*string query = "SELECT L.LoanNumber, L.Type, LP.Amount FROM Loan L, Loan_Person LP where " +
                     "L.LoanNumber = LP.LoanLoanNumber and LP.PersonSSN = " + Program.ssnGlobal;*/
@@ -50,7 +50,10 @@ namespace BankSystemGUI
                         CustomerLoanListControl loansControl = new CustomerLoanListControl();
                         loansControl.Type = (string) sqlDataReader["Type"];
                         loansControl.Number = (int) sqlDataReader["LoanNumber"];
+                        loansControl.State = (string) sqlDataReader["Status"];
                         loansControl.Amount = (decimal) sqlDataReader["Amount"];
+                        loansControl.BankCode = Program.bankCodeGlobal;
+                        loansControl.BranchNumber = Program.branchNumberGlobal;
                         loans.Add(loansControl);
                         customerLoanFlowControl.Controls.Add(loansControl);
 
