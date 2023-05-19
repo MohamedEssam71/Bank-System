@@ -37,8 +37,10 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT L.LoanNumber, L.Type, L.Amount FROM Loan L, Loan_Person LP where " +
-                    "L.LoanNumber = LP.LoanLoanNumber and LP.PersonSSN = " + Program.ssnGlobal;
+                string query = "SELECT L.LoanNumber, L.Type, LP.Amount FROM Loan L INNER JOIN Loan_Person LP ON " +
+                    "L.LoanNumber = LP.LoanLoanNumber AND LP.PersonSSN = " + Program.ssnGlobal;
+                /*string query = "SELECT L.LoanNumber, L.Type, LP.Amount FROM Loan L, Loan_Person LP where " +
+                    "L.LoanNumber = LP.LoanLoanNumber and LP.PersonSSN = " + Program.ssnGlobal;*/
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
@@ -57,18 +59,6 @@ namespace BankSystemGUI
             }
             con.Close();
         }
-            // get loans from dataBase and change fix size
-            /*for (int i = 0; i < 5; i++)
-            {
-                CustomerLoanListControl loansControl = new CustomerLoanListControl();
-                loansControl.Type = "Industrial Loan";
-                loansControl.Number = 3333;
-                loansControl.Amount = 1234;
-                loans.Add(loansControl);
-                customerLoanFlowControl.Controls.Add(loansControl);
-
-            }
-        }*/
 
         private void backToCustomerPanel_Click(object sender, EventArgs e)
         {
