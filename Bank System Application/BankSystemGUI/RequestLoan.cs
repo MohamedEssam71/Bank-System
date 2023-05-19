@@ -1,8 +1,9 @@
-﻿using BankSystem;
+using BankSystem;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,14 +28,25 @@ namespace BankSystemGUI
         }
         private void populateDropDownLoanList()
         {
-            // need to get type from the DataBase
-
-
-            for (int i = 0; i < 5; ++i)
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
             {
-                typeLoanComboBox.Items.Add("Mohamed");
+                string query = "SELECT Type FROM Loan " +
+                    "WHERE BranchBranchNumber = " + Program.branchNumberGlobal +
+                    "and BranchBankCode = " + Program.bankCodeGlobal;
+                SqlCommand cmd = new SqlCommand(query, con);
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        typeLoanComboBox.Items.Add((string)sqlDataReader["Type"]);
+                    }
+                }
             }
-
+            con.Close();
+            
+            
         }
 
         private void backToCustomerPanelLabel_Click(object sender, EventArgs e)
@@ -58,7 +70,20 @@ namespace BankSystemGUI
             else
             {
                 //Code to send Request
-                MessageBox.Show("Request Send Successfully", "Well Done");
+                /*SqlConnection con = new SqlConnection(Program.ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
+                {
+                    string query = "Insert into Loan_Person " +
+                        "Values('" + typeLoanComboBox.Text.ToString() + "', " +
+                        "'" + typeAccountComboBox.Text.ToString() + "', " +
+                        "'" + Program.ssnGlobal + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();*/
+
+                MessageBox.Show("Request Sent Successfully", "Well Done");
                 amountLoanTextBox.Clear();
                 typeLoanComboBox.Text = "";
 
