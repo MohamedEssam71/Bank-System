@@ -27,12 +27,12 @@ namespace BankSystemGUI
 
         }
 
-        private void ShowLoansCustomer_Load(object sender, EventArgs e)
+        private void ShowAccountCustomer_Load(object sender, EventArgs e)
         {
-            populateLoans();
+            populateAccounts();
         }
 
-        private void populateLoans()
+        private void populateAccounts()
         {
             SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();

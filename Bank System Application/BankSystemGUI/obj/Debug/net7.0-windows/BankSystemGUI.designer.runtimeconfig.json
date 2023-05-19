@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Maya Ayman\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Maya Ayman\\.nuget\\packages"
+      "C:\\Users\\legion\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\legion\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

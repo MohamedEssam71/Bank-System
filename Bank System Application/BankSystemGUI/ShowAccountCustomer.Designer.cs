@@ -93,7 +93,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShowAccountCustomer";
             Text = "ShowLoansCustomer";
-            Load += ShowLoansCustomer_Load;
+            Load += ShowAccountCustomer_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
