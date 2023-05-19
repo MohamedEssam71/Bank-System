@@ -46,11 +46,12 @@ namespace BankSystemGUI
                     while (sqlDataReader.Read())
                     {
                         CustomerAccountListControl accountControl = new CustomerAccountListControl();
-                        accountControl.Type = (string) sqlDataReader["Type"];
-                        accountControl.Balance = (decimal) sqlDataReader["Balance"];
+                        accountControl.Type = (string)sqlDataReader["Type"];
+                        accountControl.AccNumber = (int)sqlDataReader["AccountNumber"];
+                        accountControl.Balance = (decimal)sqlDataReader["Balance"];
                         accounts.Add(accountControl);
                         customerAccountFlowControl.Controls.Add(accountControl);
-                        
+
                     }
                 }
             }
@@ -72,6 +73,51 @@ namespace BankSystemGUI
         private void customerLoanFlowControl_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (!checkIfFill())
+            {
+                MessageBox.Show("Fill all the empty places !", "Error");
+            }
+            else
+            {
+                DialogResult dialogResult = new DialogResult();
+                dialogResult = MessageBox.Show("Sure you want to Save Changes ? ", "Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SqlConnection con = new SqlConnection(Program.ConString);
+                    con.Open();
+                    if (con.State == ConnectionState.Open)
+                    {
+                        string InitialQuery = "";
+                        SqlCommand tmpCmd = new SqlCommand(InitialQuery, con);
+                        using (SqlDataReader sqlDataReader = tmpCmd.ExecuteReader())
+                        {
+                            while (sqlDataReader.Read())
+                            {
+
+                            }
+                        }
+                        string query = "";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Request Sent Successfully", "Well Done");
+                        accNumTextBox.Clear();
+                    }
+                    con.Close();
+                }
+            }
+        }
+        private bool checkIfFill()
+        {
+            if (accNumTextBox.Text.Length == 0)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

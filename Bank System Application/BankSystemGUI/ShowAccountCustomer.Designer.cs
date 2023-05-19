@@ -33,6 +33,10 @@
             customerAccountFlowControl = new FlowLayoutPanel();
             backToCustomerPanel = new Label();
             pictureBox1 = new PictureBox();
+            accNumLabel = new Label();
+            accNumTextBox = new TextBox();
+            accNumPanel = new Panel();
+            deleteButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -73,12 +77,53 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(69, 176);
+            pictureBox1.Location = new Point(88, 146);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(188, 184);
+            pictureBox1.Size = new Size(144, 75);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
+            // 
+            // accNumLabel
+            // 
+            accNumLabel.AutoSize = true;
+            accNumLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            accNumLabel.ForeColor = Color.Peru;
+            accNumLabel.Location = new Point(12, 273);
+            accNumLabel.Name = "accNumLabel";
+            accNumLabel.Size = new Size(170, 24);
+            accNumLabel.TabIndex = 4;
+            accNumLabel.Text = "Account Number: ";
+            // 
+            // accNumTextBox
+            // 
+            accNumTextBox.BorderStyle = BorderStyle.None;
+            accNumTextBox.Cursor = Cursors.IBeam;
+            accNumTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            accNumTextBox.Location = new Point(176, 273);
+            accNumTextBox.Name = "accNumTextBox";
+            accNumTextBox.Size = new Size(116, 25);
+            accNumTextBox.TabIndex = 5;
+            // 
+            // accNumPanel
+            // 
+            accNumPanel.BackColor = Color.Black;
+            accNumPanel.Location = new Point(12, 300);
+            accNumPanel.Name = "accNumPanel";
+            accNumPanel.Size = new Size(280, 1);
+            accNumPanel.TabIndex = 6;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Cursor = Cursors.Hand;
+            deleteButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteButton.Location = new Point(63, 360);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(193, 43);
+            deleteButton.TabIndex = 7;
+            deleteButton.Text = "Delete Account";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // ShowAccountCustomer
             // 
@@ -86,6 +131,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(933, 450);
+            Controls.Add(deleteButton);
+            Controls.Add(accNumPanel);
+            Controls.Add(accNumTextBox);
+            Controls.Add(accNumLabel);
             Controls.Add(pictureBox1);
             Controls.Add(backToCustomerPanel);
             Controls.Add(customerAccountFlowControl);
@@ -105,5 +154,9 @@
         private FlowLayoutPanel customerAccountFlowControl;
         private Label backToCustomerPanel;
         private PictureBox pictureBox1;
+        private Label accNumLabel;
+        private TextBox accNumTextBox;
+        private Panel accNumPanel;
+        private Button deleteButton;
     }
 }

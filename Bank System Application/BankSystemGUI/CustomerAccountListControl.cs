@@ -17,7 +17,7 @@ namespace BankSystemGUI
         {
             InitializeComponent();
         }
-
+        private int accNumber;
         private string type;
         private decimal balance;
         public string Type
@@ -25,10 +25,15 @@ namespace BankSystemGUI
             get { return type; }
             set { this.type = value; accountTypeLabel.Text = value; }
         }
+        public int AccNumber
+        {
+            get { return accNumber; }
+            set { this.accNumber = value; accountDetailLabel.Text += "Account Number -> " + value; }
+        }
         public decimal Balance
         {
             get { return balance; }
-            set { this.balance = value; accountDetailLabel.Text += ("Balance: " + value); }
+            set { this.balance = value; accountDetailLabel.Text += ("\nBalance: " + value); }
         }
         
     }
