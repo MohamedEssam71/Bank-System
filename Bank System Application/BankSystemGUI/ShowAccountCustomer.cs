@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,16 +34,27 @@ namespace BankSystemGUI
 
         private void populateLoans()
         {
-            // get loans from dataBase and change fix size
-            for (int i = 0; i < 5; i++)
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
             {
-                CustomerAccountListControl accountControl = new CustomerAccountListControl();
-                accountControl.Type = "Saving Account";
-                accountControl.Balance = 3333;
-                accounts.Add(accountControl);
-                customerAccountFlowControl.Controls.Add(accountControl);
+                string query = "SELECT * from Account where Account.PersonSSN = " + Program.ssnGlobal;
+                SqlCommand cmd = new SqlCommand(query, con);
 
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        CustomerAccountListControl accountControl = new CustomerAccountListControl();
+                        accountControl.Type = (string) sqlDataReader["Type"];
+                        accountControl.Balance = (decimal) sqlDataReader["Balance"];
+                        accounts.Add(accountControl);
+                        customerAccountFlowControl.Controls.Add(accountControl);
+                        
+                    }
+                }
             }
+            con.Close();
         }
 
         private void backToCustomerPanel_Click(object sender, EventArgs e)

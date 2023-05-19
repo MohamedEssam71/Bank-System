@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,13 @@ namespace BankSystemGUI
         }
 
         private string type;
-        private int balance;
+        private decimal balance;
         public string Type
         {
             get { return type; }
             set { this.type = value; accountTypeLabel.Text = value; }
         }
-        public int Balance
+        public decimal Balance
         {
             get { return balance; }
             set { this.balance = value; accountDetailLabel.Text += ("Balance: " + value); }
