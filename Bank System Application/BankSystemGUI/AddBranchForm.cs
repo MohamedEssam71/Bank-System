@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,12 +45,22 @@ namespace BankSystemGUI
             }
             else
             {
-                //Code to add Bank
+                SqlConnection con = new SqlConnection(Program.ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
+                {
+                    string query = "INSERT INTO Branch(bankCode, branchNumber, address) VALUES ('" + bankCodeBranchTextBox.Text + "', '" + codeBranchTextBox.Text + "', '" + addressBranchTextBox.Text.ToString() + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
                 MessageBox.Show("Branch Added Successfully", "Well Done");
                 bankCodeBranchTextBox.Clear();
                 codeBranchTextBox.Clear();
                 addressBranchTextBox.Clear();
+
             }
+
         }
         private bool checkIfAddBankFill()
         {
@@ -65,6 +76,6 @@ namespace BankSystemGUI
         private void codeBankTextBox_TextChanged(object sender, EventArgs e)
         {
 
-        }
-    }
+        }
+    }
 }
