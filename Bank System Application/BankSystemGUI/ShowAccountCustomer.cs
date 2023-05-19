@@ -86,25 +86,60 @@ namespace BankSystemGUI
             }
             else
             {
-                DialogResult dialogResult = new DialogResult();
-                dialogResult = MessageBox.Show("Sure you want to Save Changes ? ", "Confirmation", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if(checkIfFound())
                 {
-                    SqlConnection con = new SqlConnection(Program.ConString);
-                    con.Open();
-                    if (con.State == ConnectionState.Open)
+                    DialogResult dialogResult = new DialogResult();
+                    dialogResult = MessageBox.Show("Sure you want to Save Changes ? ", "Confirmation", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        string query = "DELETE FROM Account WHERE PersonSSN = " + Program.ssnGlobal + " AND AccountNumber = " + "'" + accNumTextBox.Text.ToString() + "'";
-                        SqlCommand cmd = new SqlCommand(query, con);
-                        cmd.ExecuteNonQuery();
+                        SqlConnection con = new SqlConnection(Program.ConString);
+                        con.Open();
+                        if (con.State == ConnectionState.Open)
+                        {
+                            string query = "DELETE FROM Account WHERE PersonSSN = " + Program.ssnGlobal + " AND AccountNumber = " + "'" + accNumTextBox.Text.ToString() + "'";
+                            SqlCommand cmd = new SqlCommand(query, con);
+                            cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Request Sent Successfully", "Well Done");
-                        accNumTextBox.Clear();
+                            MessageBox.Show("Account has been deleted", "Well Done");
+                            accNumTextBox.Clear();
+                        }
+                        con.Close();
+
                     }
-                    con.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Account Number is not found !", "Error");
                 }
             }
         }
+        private bool checkIfFound()
+        {
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "Select AccountNumber from Account where PersonSSN = '" + Program.ssnGlobal + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int result = sqlDataReader.GetInt32(0);
+                        if (result == int.Parse(accNumTextBox.Text))
+                        {
+                            con.Close();
+                            return true;
+                        }
+                    }
+                }
+            }
+            con.Close();
+            return false;
+
+
+        }
+   
         private bool checkIfFill()
         {
             if (accNumTextBox.Text.Length == 0)

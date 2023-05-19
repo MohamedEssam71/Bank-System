@@ -34,10 +34,13 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT Account.Type from Account inner join Person on " +
+                /*
+                 inner join Person on " +
                     "Account.PersonSSN = Person.ssn WHERE Person.BranchBranchNumber = "
                     + Program.branchNumberGlobal + " and Person.BranchBankCode = " +
-                    Program.bankCodeGlobal + "GROUP BY Account.Type";
+                    Program.bankCodeGlobal + "
+                */
+                string query = "SELECT Account.Type from Account GROUP BY Account.Type";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
