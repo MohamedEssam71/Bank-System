@@ -34,6 +34,9 @@ namespace BankSystemGUI
 
         private void populateAccounts()
         {
+            customerAccountFlowControl.Controls.Clear();
+            accounts.Clear();
+
             SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();
             if (con.State == ConnectionState.Open)
@@ -118,6 +121,11 @@ namespace BankSystemGUI
                 return false;
             }
             return true;
+        }
+
+        private void reloadLabel_Click(object sender, EventArgs e)
+        {
+            populateAccounts();
         }
     }
 }

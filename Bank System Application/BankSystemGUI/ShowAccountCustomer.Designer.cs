@@ -37,6 +37,7 @@
             accNumTextBox = new TextBox();
             accNumPanel = new Panel();
             deleteButton = new Button();
+            reloadLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -125,12 +126,25 @@
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += deleteButton_Click;
             // 
+            // reloadLabel
+            // 
+            reloadLabel.AutoSize = true;
+            reloadLabel.Cursor = Cursors.Hand;
+            reloadLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            reloadLabel.Location = new Point(205, 25);
+            reloadLabel.Name = "reloadLabel";
+            reloadLabel.Size = new Size(121, 24);
+            reloadLabel.TabIndex = 8;
+            reloadLabel.Text = "Reload Accounts";
+            reloadLabel.Click += reloadLabel_Click;
+            // 
             // ShowAccountCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(933, 450);
+            Controls.Add(reloadLabel);
             Controls.Add(deleteButton);
             Controls.Add(accNumPanel);
             Controls.Add(accNumTextBox);
@@ -158,5 +172,6 @@
         private TextBox accNumTextBox;
         private Panel accNumPanel;
         private Button deleteButton;
+        private Label reloadLabel;
     }
 }
