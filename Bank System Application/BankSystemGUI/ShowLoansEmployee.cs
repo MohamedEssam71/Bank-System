@@ -126,7 +126,7 @@ namespace BankSystemGUI
                     while (sqlDataReader.Read())
                     {
                         string result = sqlDataReader.GetString(0);
-                        if (result == "Pending")
+                         if (result == "Pending" || result == "pending")
                         {
                             con.Close();
                             return true;
