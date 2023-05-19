@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,8 +33,32 @@ namespace BankSystemGUI
 
         private void populateLoans()
         {
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT L.LoanNumber, L.Type, L.Amount FROM Loan L, Loan_Person LP where " +
+                    "L.LoanNumber = LP.LoanLoanNumber and LP.PersonSSN = " + Program.ssnGlobal;
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        CustomerLoanListControl loansControl = new CustomerLoanListControl();
+                        loansControl.Type = (string) sqlDataReader["Type"];
+                        loansControl.Number = (int) sqlDataReader["LoanNumber"];
+                        loansControl.Amount = (decimal) sqlDataReader["Amount"];
+                        loans.Add(loansControl);
+                        customerLoanFlowControl.Controls.Add(loansControl);
+
+                    }
+                }
+            }
+            con.Close();
+        }
             // get loans from dataBase and change fix size
-            for (int i = 0; i < 5; i++)
+            /*for (int i = 0; i < 5; i++)
             {
                 CustomerLoanListControl loansControl = new CustomerLoanListControl();
                 loansControl.Type = "Industrial Loan";
@@ -43,7 +68,7 @@ namespace BankSystemGUI
                 customerLoanFlowControl.Controls.Add(loansControl);
 
             }
-        }
+        }*/
 
         private void backToCustomerPanel_Click(object sender, EventArgs e)
         {
