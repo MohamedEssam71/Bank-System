@@ -486,19 +486,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\legion\\.nuget\\packages\\": {}
+    "C:\\Users\\Maya Ayman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystemGUI\\BankSystemGUI.csproj",
+      "projectUniqueName": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystemGUI\\BankSystemGUI.csproj",
       "projectName": "BankSystemGUI",
-      "projectPath": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystemGUI\\BankSystemGUI.csproj",
-      "packagesPath": "C:\\Users\\legion\\.nuget\\packages\\",
-      "outputPath": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystemGUI\\obj\\",
+      "projectPath": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystemGUI\\BankSystemGUI.csproj",
+      "packagesPath": "C:\\Users\\Maya Ayman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystemGUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Maya Ayman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -512,8 +512,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystem\\BankSystem.csproj": {
-              "projectPath": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystem\\BankSystem.csproj"
+            "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystem\\BankSystem.csproj": {
+              "projectPath": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystem\\BankSystem.csproj"
             }
           }
         }
@@ -552,7 +552,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

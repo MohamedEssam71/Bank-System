@@ -90,6 +90,7 @@ namespace BankSystemGUI
                         th.Start();
                         this.Close();
                     }
+                    //con.Close();
                 }
             }
         }

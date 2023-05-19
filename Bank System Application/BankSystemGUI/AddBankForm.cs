@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,11 +45,19 @@ namespace BankSystemGUI
             }
             else
             {
-                //Code to add Bank
-                MessageBox.Show("Bank Added Successfully", "Well Done");
-                nameBankTextBox.Clear();
-                codeBankTextBox.Clear();
-                addressBankTextBox.Clear();
+                SqlConnection con = new SqlConnection(Program.ConString);
+                con.Open();
+                if (con.State == ConnectionState.Open)
+                {
+                    string query = "INSERT INTO Bank(name, address) VALUES ('" + nameBankTextBox.Text.ToString() +"', '" + addressBankTextBox.Text.ToString() + "')";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Bank Added Successfully", "Well Done");
+                    nameBankTextBox.Clear();
+                    codeBankTextBox.Clear();
+                    addressBankTextBox.Clear();
+                }
+                con.Close();
             }
         }
         private bool checkIfAddBankFill()

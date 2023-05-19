@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\legion\\.nuget\\packages\\": {}
+    "C:\\Users\\Maya Ayman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystem\\BankSystem.csproj",
+      "projectUniqueName": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystem\\BankSystem.csproj",
       "projectName": "BankSystem",
-      "projectPath": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystem\\BankSystem.csproj",
-      "packagesPath": "C:\\Users\\legion\\.nuget\\packages\\",
-      "outputPath": "H:\\ME71\\2nd Year\\2nd Term\\DataBase\\Project\\Bank-System-GitHub\\Bank System Application\\BankSystem\\obj\\",
+      "projectPath": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystem\\BankSystem.csproj",
+      "packagesPath": "C:\\Users\\Maya Ayman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Maya Ayman\\Source\\Repos\\Bank-System\\Bank System Application\\BankSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\legion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Maya Ayman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
