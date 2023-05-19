@@ -26,6 +26,7 @@ namespace BankSystemGUI
         private SqlMoney amount;
         private int branchNumber;
         private int bankCode;
+        private string ssnPerson;
         public string Type
         {
             get { return type; }
@@ -35,6 +36,11 @@ namespace BankSystemGUI
         {
             get { return state; }
             set { this.state = value; loanDescriptionLabel.Text += ",   State: " + value; }
+        }
+        public string SSNPerson
+        {
+            get { return ssnPerson; }
+            set { ssnPerson = value; loanDescriptionLabel.Text += "\nPerson SSN: " + value; }
         }
         public int Number
         {

@@ -44,7 +44,7 @@ namespace BankSystemGUI
             {
                 if (!isValidLoanNumber())
                 {
-                    MessageBox.Show("Loan Number isn't Found !", "Error");
+                    MessageBox.Show("Loan Number or Personal SSN isn't Found !", "Error");
                 }
                 else
                 {
@@ -59,9 +59,10 @@ namespace BankSystemGUI
                         con.Open();
                         if (con.State == ConnectionState.Open)
                         {
-                            string query = "UPDATE Loan Set status = '" +
+                            string query = "UPDATE Loan_Person Set status = '" +
                                 employeeStateLoanComboBox.Text.ToString() + "' " +
-                                "WHERE LoanNumber = " + int.Parse(emplyeeNumberLoanTextBox.Text);
+                                "WHERE LoanLoanNumber = " + int.Parse(emplyeeNumberLoanTextBox.Text) +
+                                " and PersonSSN = '" + personSSNTextBox.Text.ToString() + "'";
                             SqlCommand cmd = new SqlCommand(query, con);
                             cmd.ExecuteNonQuery();
                         }
@@ -69,6 +70,7 @@ namespace BankSystemGUI
 
                         MessageBox.Show("Loan Action confirmed Successfully", "Well Done");
                         employeeStateLoanComboBox.Text = string.Empty;
+                        personSSNTextBox.Text = string.Empty;
                         emplyeeNumberLoanTextBox.Clear();
                     }
                 }
@@ -81,7 +83,8 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT LoanNumber FROM Loan where " +
+                string query = "SELECT Loan_Person.LoanLoanNumber, Loan_Person.personSSN FROM " +
+                    "Loan_Person inner join Loan on Loan_Person.LoanLoanNumber = Loan.LoanNumber where " +
                     "BranchBranchNumber = " + Program.branchNumberGlobal + " " +
                     "and BranchBankCode = " + Program.bankCodeGlobal;
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -91,10 +94,15 @@ namespace BankSystemGUI
                     while (sqlDataReader.Read())
                     {
                         int result = sqlDataReader.GetInt32(0);
+                        string ssn = sqlDataReader.GetString(1);
                         if (result == int.Parse(emplyeeNumberLoanTextBox.Text))
                         {
-                            con.Close();
-                            return true;
+                            if (ssn == personSSNTextBox.Text)
+                            {
+                                con.Close();
+                                return true;
+                            }
+
                         }
                     }
                 }
@@ -108,8 +116,9 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT status FROM Loan where LoanNumber = " +
-                    int.Parse(emplyeeNumberLoanTextBox.Text);
+                string query = "SELECT status FROM Loan_Person where LoanLoanNumber = " +
+                    int.Parse(emplyeeNumberLoanTextBox.Text) + " AND personSSN = '" +
+                    personSSNTextBox.Text.ToString() + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
@@ -130,7 +139,8 @@ namespace BankSystemGUI
         }
         private bool checkIfFill()
         {
-            if (emplyeeNumberLoanTextBox.Text.Length == 0 || employeeStateLoanComboBox.Text.Length == 0)
+            if (emplyeeNumberLoanTextBox.Text.Length == 0 || employeeStateLoanComboBox.Text.Length == 0
+                || personSSNTextBox.Text.Length == 0)
             {
                 return false;
             }
@@ -156,7 +166,10 @@ namespace BankSystemGUI
             if (con.State == ConnectionState.Open)
             {
                 // loan from the same branch and bank as the employee.
-                string query = "SELECT * from Loan where BranchBankCode IN (" +
+                string query = "SELECT Loan_Person.LoanLoanNumber,Loan_Person.PersonSSN, Loan.Type, Loan_Person.Amount" +
+                    ", Loan.BranchBankCode, Loan.BranchBranchNumber  from Loan inner join Loan_Person " +
+                    "on Loan_Person.LoanLoanNumber = Loan.LoanNumber " +
+                    "where BranchBankCode IN (" +
                     "select BranchBankCode from Person where ssn = '" + Program.ssnGlobal + "')" +
                     "and BranchBranchNumber IN (select BranchBranchNumber from Person where " +
                     "ssn = '" + Program.ssnGlobal + "') and status = 'Pending'";
@@ -167,15 +180,17 @@ namespace BankSystemGUI
                     while (sqlDataReader.Read())
                     {
                         int loanNumberResult = sqlDataReader.GetInt32(0);
-                        string typeResult = sqlDataReader.GetString(1);
-                        SqlMoney amountResult = sqlDataReader.GetSqlMoney(2);
-                        int bankCodeResult = sqlDataReader.GetInt32(5);
-                        int branchNumberResult = sqlDataReader.GetInt32(4);
+                        string loanPersonSSN = sqlDataReader.GetString(1);
+                        string typeResult = sqlDataReader.GetString(2);
+                        SqlMoney amountResult = sqlDataReader.GetSqlMoney(3);
+                        int bankCodeResult = sqlDataReader.GetInt32(4);
+                        int branchNumberResult = sqlDataReader.GetInt32(5);
 
 
                         CustomerLoanListControl loan = new CustomerLoanListControl();
                         loan.Type = typeResult;
                         loan.Number = loanNumberResult;
+                        loan.SSNPerson = loanPersonSSN;
                         loan.State = "Pending";
                         loan.Amount = amountResult;
                         loan.BankCode = bankCodeResult;
