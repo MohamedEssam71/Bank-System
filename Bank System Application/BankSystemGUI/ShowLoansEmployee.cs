@@ -146,6 +146,7 @@ namespace BankSystemGUI
             if (employeeLoansFlowControl.Controls.Count > 0)
             {
                 employeeLoansFlowControl.Controls.Clear();
+                loans.Clear();
             }
 
             // load loans that from the same branch and is pending to make employee choose from them.
@@ -208,6 +209,12 @@ namespace BankSystemGUI
 
         private void reloadLabel_Click(object sender, EventArgs e)
         {
+            if(loans.Count == 0) {
+                MessageBox.Show("No Pending Loans available !", "Note");
+                return;
+            }
+            employeeLoansFlowControl.Controls.Clear();
+            loans.Clear();
             populateLoans();
         }
     }
