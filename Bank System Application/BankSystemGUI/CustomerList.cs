@@ -37,11 +37,10 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT * from person where BranchBankCode IN (" +
-                    "select BranchBankCode from Person where ssn = '" + Program.ssnGlobal + "')" +
-                    "and BranchBranchNumber IN (select BranchBranchNumber from Person where " +
-                    "ssn = '" + Program.ssnGlobal + "') and ssn <> '" + Program.ssnGlobal + "' " +
-                    "and type = 'Customer'";
+                string query = "select * from person where BranchBankCode IN (" +
+                 "select BranchBankCode from person where ssn = '" + Program.ssnGlobal + "') " +
+                 "AND ssn <> '" + Program.ssnGlobal + "' " +
+                 "AND type = 'Customer'";
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
