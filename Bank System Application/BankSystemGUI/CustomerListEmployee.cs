@@ -113,7 +113,7 @@ namespace BankSystemGUI
                     customerListControls.Add(customer);
                     CustomerListFlowControlPanel.Controls.Add(customer);
 
-                    //Code to add Bank
+                    
                     SqlConnection con = new SqlConnection(Program.ConString);
                     con.Open();
                     if (con.State == ConnectionState.Open)

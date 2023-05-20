@@ -40,6 +40,10 @@
             employeeStateLoanPanel = new Panel();
             employeeStateLoanLabel = new Label();
             confirmStateLoanButton = new Button();
+            reloadLabel = new Label();
+            ssnTextBox = new TextBox();
+            ssnPanel = new Panel();
+            ssnLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)employeeLoansPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +52,7 @@
             showLoansLabel.AutoSize = true;
             showLoansLabel.Font = new Font("Bauhaus 93", 30F, FontStyle.Bold, GraphicsUnit.Point);
             showLoansLabel.ForeColor = SystemColors.Highlight;
-            showLoansLabel.Location = new Point(30, 74);
+            showLoansLabel.Location = new Point(30, 64);
             showLoansLabel.Name = "showLoansLabel";
             showLoansLabel.Size = new Size(282, 57);
             showLoansLabel.TabIndex = 0;
@@ -80,7 +84,7 @@
             // employeeLoansPictureBox
             // 
             employeeLoansPictureBox.Image = (Image)resources.GetObject("employeeLoansPictureBox.Image");
-            employeeLoansPictureBox.Location = new Point(107, 134);
+            employeeLoansPictureBox.Location = new Point(109, 124);
             employeeLoansPictureBox.Name = "employeeLoansPictureBox";
             employeeLoansPictureBox.Size = new Size(125, 62);
             employeeLoansPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
@@ -92,7 +96,7 @@
             numberLoanLabel.AutoSize = true;
             numberLoanLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             numberLoanLabel.ForeColor = Color.Peru;
-            numberLoanLabel.Location = new Point(30, 232);
+            numberLoanLabel.Location = new Point(30, 204);
             numberLoanLabel.Name = "numberLoanLabel";
             numberLoanLabel.Size = new Size(87, 24);
             numberLoanLabel.TabIndex = 4;
@@ -101,7 +105,7 @@
             // employeeNumberLoanPanel
             // 
             employeeNumberLoanPanel.BackColor = Color.Black;
-            employeeNumberLoanPanel.Location = new Point(32, 259);
+            employeeNumberLoanPanel.Location = new Point(32, 231);
             employeeNumberLoanPanel.Name = "employeeNumberLoanPanel";
             employeeNumberLoanPanel.Size = new Size(280, 1);
             employeeNumberLoanPanel.TabIndex = 5;
@@ -110,7 +114,7 @@
             // 
             emplyeeNumberLoanTextBox.BorderStyle = BorderStyle.None;
             emplyeeNumberLoanTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            emplyeeNumberLoanTextBox.Location = new Point(123, 232);
+            emplyeeNumberLoanTextBox.Location = new Point(123, 204);
             emplyeeNumberLoanTextBox.Name = "emplyeeNumberLoanTextBox";
             emplyeeNumberLoanTextBox.Size = new Size(189, 25);
             emplyeeNumberLoanTextBox.TabIndex = 6;
@@ -156,12 +160,56 @@
             confirmStateLoanButton.UseVisualStyleBackColor = true;
             confirmStateLoanButton.Click += confirmStateLoanButton_Click;
             // 
+            // reloadLabel
+            // 
+            reloadLabel.AutoSize = true;
+            reloadLabel.Cursor = Cursors.Hand;
+            reloadLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            reloadLabel.Location = new Point(214, 27);
+            reloadLabel.Name = "reloadLabel";
+            reloadLabel.Size = new Size(98, 24);
+            reloadLabel.TabIndex = 11;
+            reloadLabel.Text = "Reload Loans";
+            reloadLabel.Click += reloadLabel_Click;
+            // 
+            // ssnTextBox
+            // 
+            ssnTextBox.BorderStyle = BorderStyle.None;
+            ssnTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ssnTextBox.Location = new Point(123, 254);
+            ssnTextBox.Name = "ssnTextBox";
+            ssnTextBox.Size = new Size(189, 25);
+            ssnTextBox.TabIndex = 14;
+            // 
+            // ssnPanel
+            // 
+            ssnPanel.BackColor = Color.Black;
+            ssnPanel.Location = new Point(32, 281);
+            ssnPanel.Name = "ssnPanel";
+            ssnPanel.Size = new Size(280, 1);
+            ssnPanel.TabIndex = 13;
+            // 
+            // ssnLabel
+            // 
+            ssnLabel.AutoSize = true;
+            ssnLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ssnLabel.ForeColor = Color.Peru;
+            ssnLabel.Location = new Point(30, 254);
+            ssnLabel.Name = "ssnLabel";
+            ssnLabel.Size = new Size(53, 24);
+            ssnLabel.TabIndex = 12;
+            ssnLabel.Text = "SSN:";
+            // 
             // ShowLoansAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(933, 450);
+            Controls.Add(ssnTextBox);
+            Controls.Add(ssnPanel);
+            Controls.Add(ssnLabel);
+            Controls.Add(reloadLabel);
             Controls.Add(confirmStateLoanButton);
             Controls.Add(employeeStateLoanPanel);
             Controls.Add(employeeStateLoanLabel);
@@ -195,5 +243,9 @@
         private Panel employeeStateLoanPanel;
         private Label employeeStateLoanLabel;
         private Button confirmStateLoanButton;
+        private Label reloadLabel;
+        private TextBox ssnTextBox;
+        private Panel ssnPanel;
+        private Label ssnLabel;
     }
 }

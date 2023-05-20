@@ -80,5 +80,17 @@ namespace BankSystemGUI
         {
             populateLoans();
         }
+
+        private void reloadLabel_Click(object sender, EventArgs e)
+        {
+            if (loans.Count == 0)
+            {
+                MessageBox.Show("No Pending Loans available !", "Note");
+                return;
+            }
+            employeeLoansFlowControl.Controls.Clear();
+            loans.Clear();
+            populateLoans();
+        }
     }
 }
