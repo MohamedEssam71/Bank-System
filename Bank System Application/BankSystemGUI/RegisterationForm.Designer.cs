@@ -57,7 +57,7 @@
             registerLabel.AutoSize = true;
             registerLabel.Font = new Font("Bauhaus 93", 24F, FontStyle.Bold, GraphicsUnit.Point);
             registerLabel.ForeColor = SystemColors.Highlight;
-            registerLabel.Location = new Point(217, 23);
+            registerLabel.Location = new Point(261, 23);
             registerLabel.Name = "registerLabel";
             registerLabel.Size = new Size(353, 45);
             registerLabel.TabIndex = 0;

@@ -15,7 +15,7 @@ namespace BankSystemGUI
     public partial class RegisterationForm : Form
     {
         private Thread th;
-        
+
         public RegisterationForm()
         {
             InitializeComponent();
@@ -108,7 +108,7 @@ namespace BankSystemGUI
                     while (sqlDataReader.Read())
                     {
                         string result = sqlDataReader.GetString(0);
-                        if(result == ssnTextBox.Text)
+                        if (result == ssnTextBox.Text)
                         {
                             return false;
                         }
