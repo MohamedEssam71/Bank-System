@@ -48,20 +48,37 @@ namespace BankSystemGUI
                     con.Open();
                     if (con.State == ConnectionState.Open)
                     {
-                        string query = "DELETE FROM Loan_Person WHERE LoanLoanNumber = " +
-                            +int.Parse(adminNumberLoanTextBox.Text) + " AND PersonSSN = '"
-                            + ssnTextBox.Text.ToString() + "'";
-                        SqlCommand cmd = new SqlCommand(query, con);
-                        cmd.ExecuteNonQuery();
+                        // Retrieve the bank code of the admin
+                        string bankCodeQuery = "SELECT BranchBankCode FROM Person WHERE SSN = '" + Program.ssnGlobal + "'";
+                        SqlCommand bankCodeCmd = new SqlCommand(bankCodeQuery, con);
+                        int bankCode = (int)bankCodeCmd.ExecuteScalar();
 
-                        MessageBox.Show("Account has been deleted", "Well Done");
+                        string query = "DELETE FROM Loan_Person " +
+                                       "WHERE LoanLoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) +
+                                       " AND PersonSSN = '" + ssnTextBox.Text.ToString() + "' " +
+                                       "AND EXISTS " +
+                                       "(SELECT 1 FROM Loan l INNER JOIN Person p ON l.BranchBranchNumber = p.BranchBranchNumber AND l.BranchBankCode = p.BranchBankCode " +
+                                       "WHERE l.LoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) +
+                                       " AND p.BranchBankCode = " + bankCode + ")";
+
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Loan has been deleted", "Success");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Loan not found or you don't have access to delete it", "Error");
+                        }
                     }
                     stateLoanComboBox.Text = string.Empty;
                     adminNumberLoanTextBox.Clear();
                     ssnTextBox.Clear();
                     con.Close();
                     return;
-                }
+                }
                 else
                 {
                     if (!isValidLoanNumber())
