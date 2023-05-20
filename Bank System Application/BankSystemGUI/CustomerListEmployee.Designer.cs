@@ -209,7 +209,7 @@
             backToEmployeeLabel.Size = new Size(171, 24);
             backToEmployeeLabel.TabIndex = 15;
             backToEmployeeLabel.Text = "Back to Employee Panel";
-            backToEmployeeLabel.Click += backToAdminLabel_Click;
+            backToEmployeeLabel.Click += backToEmployeeLabel_Click;
             // 
             // CustomerListEmployee
             // 

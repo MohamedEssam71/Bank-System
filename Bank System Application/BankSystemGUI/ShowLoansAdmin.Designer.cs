@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowLoansAdmin));
             showLoansLabel = new Label();
-            backToEmployeeLabel = new Label();
-            employeeLoansFlowControl = new FlowLayoutPanel();
-            employeeLoansPictureBox = new PictureBox();
+            backToAdminLabel = new Label();
+            adminLoansFlowControl = new FlowLayoutPanel();
+            adminLoansPictureBox = new PictureBox();
             numberLoanLabel = new Label();
-            employeeNumberLoanPanel = new Panel();
-            emplyeeNumberLoanTextBox = new TextBox();
-            employeeStateLoanComboBox = new ComboBox();
+            adminNumberLoanPanel = new Panel();
+            adminNumberLoanTextBox = new TextBox();
+            stateLoanComboBox = new ComboBox();
             employeeStateLoanPanel = new Panel();
-            employeeStateLoanLabel = new Label();
+            stateLoanLabel = new Label();
             confirmStateLoanButton = new Button();
             reloadLabel = new Label();
             ssnTextBox = new TextBox();
             ssnPanel = new Panel();
             ssnLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)employeeLoansPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)adminLoansPictureBox).BeginInit();
             SuspendLayout();
             // 
             // showLoansLabel
@@ -58,38 +58,38 @@
             showLoansLabel.TabIndex = 0;
             showLoansLabel.Text = "Show Loans";
             // 
-            // backToEmployeeLabel
+            // backToAdminLabel
             // 
-            backToEmployeeLabel.AutoSize = true;
-            backToEmployeeLabel.Cursor = Cursors.Hand;
-            backToEmployeeLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            backToEmployeeLabel.Location = new Point(12, 27);
-            backToEmployeeLabel.Name = "backToEmployeeLabel";
-            backToEmployeeLabel.Size = new Size(147, 24);
-            backToEmployeeLabel.TabIndex = 1;
-            backToEmployeeLabel.Text = "Back to Admin Panel";
-            backToEmployeeLabel.Click += backToEmployeeLabel_Click;
+            backToAdminLabel.AutoSize = true;
+            backToAdminLabel.Cursor = Cursors.Hand;
+            backToAdminLabel.Font = new Font("Bahnschrift Condensed", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            backToAdminLabel.Location = new Point(12, 27);
+            backToAdminLabel.Name = "backToAdminLabel";
+            backToAdminLabel.Size = new Size(147, 24);
+            backToAdminLabel.TabIndex = 1;
+            backToAdminLabel.Text = "Back to Admin Panel";
+            backToAdminLabel.Click += backToEmployeeLabel_Click;
             // 
-            // employeeLoansFlowControl
+            // adminLoansFlowControl
             // 
-            employeeLoansFlowControl.AutoScroll = true;
-            employeeLoansFlowControl.BackColor = SystemColors.Control;
-            employeeLoansFlowControl.Dock = DockStyle.Right;
-            employeeLoansFlowControl.Location = new Point(341, 0);
-            employeeLoansFlowControl.Name = "employeeLoansFlowControl";
-            employeeLoansFlowControl.Size = new Size(592, 450);
-            employeeLoansFlowControl.TabIndex = 2;
-            employeeLoansFlowControl.Paint += employeeLoansFlowControl_Paint;
+            adminLoansFlowControl.AutoScroll = true;
+            adminLoansFlowControl.BackColor = SystemColors.Control;
+            adminLoansFlowControl.Dock = DockStyle.Right;
+            adminLoansFlowControl.Location = new Point(341, 0);
+            adminLoansFlowControl.Name = "adminLoansFlowControl";
+            adminLoansFlowControl.Size = new Size(592, 450);
+            adminLoansFlowControl.TabIndex = 2;
+            adminLoansFlowControl.Paint += employeeLoansFlowControl_Paint;
             // 
-            // employeeLoansPictureBox
+            // adminLoansPictureBox
             // 
-            employeeLoansPictureBox.Image = (Image)resources.GetObject("employeeLoansPictureBox.Image");
-            employeeLoansPictureBox.Location = new Point(109, 124);
-            employeeLoansPictureBox.Name = "employeeLoansPictureBox";
-            employeeLoansPictureBox.Size = new Size(125, 62);
-            employeeLoansPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            employeeLoansPictureBox.TabIndex = 3;
-            employeeLoansPictureBox.TabStop = false;
+            adminLoansPictureBox.Image = (Image)resources.GetObject("adminLoansPictureBox.Image");
+            adminLoansPictureBox.Location = new Point(109, 124);
+            adminLoansPictureBox.Name = "adminLoansPictureBox";
+            adminLoansPictureBox.Size = new Size(125, 62);
+            adminLoansPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            adminLoansPictureBox.TabIndex = 3;
+            adminLoansPictureBox.TabStop = false;
             // 
             // numberLoanLabel
             // 
@@ -102,33 +102,34 @@
             numberLoanLabel.TabIndex = 4;
             numberLoanLabel.Text = "Number:";
             // 
-            // employeeNumberLoanPanel
+            // adminNumberLoanPanel
             // 
-            employeeNumberLoanPanel.BackColor = Color.Black;
-            employeeNumberLoanPanel.Location = new Point(32, 231);
-            employeeNumberLoanPanel.Name = "employeeNumberLoanPanel";
-            employeeNumberLoanPanel.Size = new Size(280, 1);
-            employeeNumberLoanPanel.TabIndex = 5;
+            adminNumberLoanPanel.BackColor = Color.Black;
+            adminNumberLoanPanel.Location = new Point(32, 231);
+            adminNumberLoanPanel.Name = "adminNumberLoanPanel";
+            adminNumberLoanPanel.Size = new Size(280, 1);
+            adminNumberLoanPanel.TabIndex = 5;
             // 
-            // emplyeeNumberLoanTextBox
+            // adminNumberLoanTextBox
             // 
-            emplyeeNumberLoanTextBox.BorderStyle = BorderStyle.None;
-            emplyeeNumberLoanTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            emplyeeNumberLoanTextBox.Location = new Point(123, 204);
-            emplyeeNumberLoanTextBox.Name = "emplyeeNumberLoanTextBox";
-            emplyeeNumberLoanTextBox.Size = new Size(189, 25);
-            emplyeeNumberLoanTextBox.TabIndex = 6;
+            adminNumberLoanTextBox.BorderStyle = BorderStyle.None;
+            adminNumberLoanTextBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            adminNumberLoanTextBox.Location = new Point(123, 204);
+            adminNumberLoanTextBox.Name = "adminNumberLoanTextBox";
+            adminNumberLoanTextBox.Size = new Size(189, 25);
+            adminNumberLoanTextBox.TabIndex = 6;
             // 
-            // employeeStateLoanComboBox
+            // stateLoanComboBox
             // 
-            employeeStateLoanComboBox.BackColor = SystemColors.Control;
-            employeeStateLoanComboBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            employeeStateLoanComboBox.FormattingEnabled = true;
-            employeeStateLoanComboBox.Items.AddRange(new object[] { "Accept", "Reject" });
-            employeeStateLoanComboBox.Location = new Point(109, 296);
-            employeeStateLoanComboBox.Name = "employeeStateLoanComboBox";
-            employeeStateLoanComboBox.Size = new Size(203, 32);
-            employeeStateLoanComboBox.TabIndex = 7;
+            stateLoanComboBox.BackColor = SystemColors.Control;
+            stateLoanComboBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            stateLoanComboBox.FormattingEnabled = true;
+            stateLoanComboBox.Items.AddRange(new object[] { "Accept", "Reject", "Delete" });
+            stateLoanComboBox.Location = new Point(109, 296);
+            stateLoanComboBox.Name = "stateLoanComboBox";
+            stateLoanComboBox.Size = new Size(203, 32);
+            stateLoanComboBox.TabIndex = 7;
+            stateLoanComboBox.SelectedIndexChanged += employeeStateLoanComboBox_SelectedIndexChanged;
             // 
             // employeeStateLoanPanel
             // 
@@ -138,16 +139,16 @@
             employeeStateLoanPanel.Size = new Size(280, 1);
             employeeStateLoanPanel.TabIndex = 9;
             // 
-            // employeeStateLoanLabel
+            // stateLoanLabel
             // 
-            employeeStateLoanLabel.AutoSize = true;
-            employeeStateLoanLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            employeeStateLoanLabel.ForeColor = Color.Peru;
-            employeeStateLoanLabel.Location = new Point(30, 300);
-            employeeStateLoanLabel.Name = "employeeStateLoanLabel";
-            employeeStateLoanLabel.Size = new Size(73, 24);
-            employeeStateLoanLabel.TabIndex = 8;
-            employeeStateLoanLabel.Text = "Status:";
+            stateLoanLabel.AutoSize = true;
+            stateLoanLabel.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            stateLoanLabel.ForeColor = Color.Peru;
+            stateLoanLabel.Location = new Point(30, 300);
+            stateLoanLabel.Name = "stateLoanLabel";
+            stateLoanLabel.Size = new Size(73, 24);
+            stateLoanLabel.TabIndex = 8;
+            stateLoanLabel.Text = "Status:";
             // 
             // confirmStateLoanButton
             // 
@@ -212,20 +213,20 @@
             Controls.Add(reloadLabel);
             Controls.Add(confirmStateLoanButton);
             Controls.Add(employeeStateLoanPanel);
-            Controls.Add(employeeStateLoanLabel);
-            Controls.Add(employeeStateLoanComboBox);
-            Controls.Add(emplyeeNumberLoanTextBox);
-            Controls.Add(employeeNumberLoanPanel);
+            Controls.Add(stateLoanLabel);
+            Controls.Add(stateLoanComboBox);
+            Controls.Add(adminNumberLoanTextBox);
+            Controls.Add(adminNumberLoanPanel);
             Controls.Add(numberLoanLabel);
-            Controls.Add(employeeLoansPictureBox);
-            Controls.Add(employeeLoansFlowControl);
-            Controls.Add(backToEmployeeLabel);
+            Controls.Add(adminLoansPictureBox);
+            Controls.Add(adminLoansFlowControl);
+            Controls.Add(backToAdminLabel);
             Controls.Add(showLoansLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShowLoansAdmin";
             Text = "Show Loans Employee";
-            Load += ShowLoansEmployee_Load;
-            ((System.ComponentModel.ISupportInitialize)employeeLoansPictureBox).EndInit();
+            Load += ShowLoansAdmin_Load;
+            ((System.ComponentModel.ISupportInitialize)adminLoansPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,15 +234,15 @@
         #endregion
 
         private Label showLoansLabel;
-        private Label backToEmployeeLabel;
-        private FlowLayoutPanel employeeLoansFlowControl;
-        private PictureBox employeeLoansPictureBox;
+        private Label backToAdminLabel;
+        private FlowLayoutPanel adminLoansFlowControl;
+        private PictureBox adminLoansPictureBox;
         private Label numberLoanLabel;
-        private Panel employeeNumberLoanPanel;
-        private TextBox emplyeeNumberLoanTextBox;
-        private ComboBox employeeStateLoanComboBox;
+        private Panel adminNumberLoanPanel;
+        private TextBox adminNumberLoanTextBox;
+        private ComboBox stateLoanComboBox;
         private Panel employeeStateLoanPanel;
-        private Label employeeStateLoanLabel;
+        private Label stateLoanLabel;
         private Button confirmStateLoanButton;
         private Label reloadLabel;
         private TextBox ssnTextBox;

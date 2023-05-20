@@ -45,21 +45,56 @@ namespace BankSystemGUI
             }
             else
             {
-                SqlConnection con = new SqlConnection(Program.ConString);
-                con.Open();
-                if (con.State == ConnectionState.Open)
+                if (!isValidBankCode())
                 {
-                    string query = "INSERT INTO Branch(bankCode, branchNumber, address) VALUES ('" + bankCodeBranchTextBox.Text + "', '" + codeBranchTextBox.Text + "', '" + addressBranchTextBox.Text.ToString() + "')";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("The Bank Code is not Found, Please Insert a new one", "Error");
                 }
-                con.Close();
-                MessageBox.Show("Branch Added Successfully", "Well Done");
-                bankCodeBranchTextBox.Clear();
-                codeBranchTextBox.Clear();
-                addressBranchTextBox.Clear();
+                else
+                {
+                    SqlConnection con = new SqlConnection(Program.ConString);
+                    con.Open();
+                    if (con.State == ConnectionState.Open)
+                    {
+                        string query = "INSERT INTO Branch(bankCode, branchNumber, address) VALUES ('" +
+                            bankCodeBranchTextBox.Text + "', '" + codeBranchTextBox.Text + "', '" +
+                            addressBranchTextBox.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                    }
+                    con.Close();
+                    MessageBox.Show("Branch Added Successfully", "Well Done");
+                    bankCodeBranchTextBox.Clear();
+                    codeBranchTextBox.Clear();
+                    addressBranchTextBox.Clear();
+                }
 
             }
+
+        }
+        private bool isValidBankCode()
+        {
+            SqlConnection con = new SqlConnection(Program.ConString);
+            con.Open();
+            if (con.State == ConnectionState.Open)
+            {
+                string query = "SELECT Code FROM Bank";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        int result = sqlDataReader.GetInt32(0);
+                        if (result == int.Parse(bankCodeBranchTextBox.Text))
+                        {
+                            con.Close();
+                            return true;
+                        }
+                    }
+                }
+            }
+            con.Close();
+            return false;
 
         }
         private bool checkIfAddBankFill()

@@ -171,7 +171,7 @@ namespace BankSystemGUI
             return true;
         }
 
-        private void backToAdminLabel_Click(object sender, EventArgs e)
+        private void backToEmployeeLabel_Click(object sender, EventArgs e)
         {
             th = new Thread(openEmployeeForm);
             th.SetApartmentState(ApartmentState.STA);

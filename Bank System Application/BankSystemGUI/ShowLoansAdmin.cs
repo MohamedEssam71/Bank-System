@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -40,16 +41,41 @@ namespace BankSystemGUI
             }
             else
             {
-                //Code to change database loan attribute to accept, reject, pending
+                if (stateLoanComboBox.Text == "Delete")
+                {
+                    SqlConnection con = new SqlConnection(Program.ConString);
+                    con.Open();
+                    if (con.State == ConnectionState.Open)
+                    {
+                        string query = "DELETE FROM Loan_Person WHERE LoanLoanNumber = " +
+                            + int.Parse(adminNumberLoanTextBox.Text) + " AND PersonSSN = '"
+                            + ssnTextBox.Text.ToString() + "'";
+                        SqlCommand cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Account has been deleted", "Well Done");
+                    }
+                    stateLoanComboBox.Text = string.Empty;
+                    adminNumberLoanTextBox.Clear();
+                    ssnTextBox.Clear();
+                    con.Close();
+                    return;
+                }
+                else
+                {
+                    //Write Here the code to change database loan attribute to accept, reject, pending
+                }
+
                 MessageBox.Show("Loan Action confirmed Successfully", "Well Done");
-                employeeStateLoanComboBox.Text = string.Empty;
-                emplyeeNumberLoanTextBox.Clear();
+                stateLoanComboBox.Text = string.Empty;
+                adminNumberLoanTextBox.Clear();
+                ssnTextBox.Clear();
             }
 
         }
         private bool checkIfFill()
         {
-            if (emplyeeNumberLoanTextBox.Text.Length == 0 || employeeStateLoanComboBox.Text.Length == 0)
+            if (adminNumberLoanTextBox.Text.Length == 0 || stateLoanComboBox.Text.Length == 0)
             {
                 return false;
             }
@@ -71,12 +97,12 @@ namespace BankSystemGUI
                 loansControl.Number = 3333;
                 loansControl.Amount = 1234;
                 loans.Add(loansControl);
-                employeeLoansFlowControl.Controls.Add(loansControl);
+                adminLoansFlowControl.Controls.Add(loansControl);
 
             }
         }
 
-        private void ShowLoansEmployee_Load(object sender, EventArgs e)
+        private void ShowLoansAdmin_Load(object sender, EventArgs e)
         {
             populateLoans();
         }
@@ -88,9 +114,14 @@ namespace BankSystemGUI
                 MessageBox.Show("No Pending Loans available !", "Note");
                 return;
             }
-            employeeLoansFlowControl.Controls.Clear();
+            adminLoansFlowControl.Controls.Clear();
             loans.Clear();
             populateLoans();
+        }
+
+        private void employeeStateLoanComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
