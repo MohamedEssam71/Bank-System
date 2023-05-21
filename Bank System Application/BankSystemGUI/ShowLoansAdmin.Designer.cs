@@ -224,7 +224,7 @@
             Controls.Add(showLoansLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShowLoansAdmin";
-            Text = "Show Loans Employee";
+            Text = "Show Loans Admin";
             Load += ShowLoansAdmin_Load;
             ((System.ComponentModel.ISupportInitialize)adminLoansPictureBox).EndInit();
             ResumeLayout(false);

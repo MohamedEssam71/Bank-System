@@ -74,7 +74,9 @@ namespace BankSystemGUI
                 con.Open();
                 if (con.State == ConnectionState.Open)
                 {
-                    string InitialQuery = "SELECT LoanNumber FROM Loan WHERE Type = '" + typeLoanComboBox.Text.ToString() + "'";
+                    string InitialQuery = "SELECT LoanNumber FROM Loan WHERE Type = '" + typeLoanComboBox.Text.ToString() + "'" +
+                        " and BranchBankCode = " + Program.bankCodeGlobal + " and " +
+                        "BranchBranchNumber = " + Program.branchNumberGlobal; ;
                     SqlCommand tmpCmd = new SqlCommand(InitialQuery, con);
                     int LoanNumber = 0;
                     using (SqlDataReader sqlDataReader = tmpCmd.ExecuteReader())

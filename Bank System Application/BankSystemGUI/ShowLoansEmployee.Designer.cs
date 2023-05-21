@@ -126,7 +126,7 @@
             employeeStateLoanComboBox.Cursor = Cursors.Hand;
             employeeStateLoanComboBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             employeeStateLoanComboBox.FormattingEnabled = true;
-            employeeStateLoanComboBox.Items.AddRange(new object[] { "Accepted", "Rejected" });
+            employeeStateLoanComboBox.Items.AddRange(new object[] { "Accept", "Reject" });
             employeeStateLoanComboBox.Location = new Point(109, 296);
             employeeStateLoanComboBox.Name = "employeeStateLoanComboBox";
             employeeStateLoanComboBox.Size = new Size(203, 32);

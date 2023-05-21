@@ -27,20 +27,46 @@ namespace BankSystemGUI
         private int branchNumber;
         private int bankCode;
         private string ssnPerson;
+        private int loanPersonID;
+        private string employeeName;
+        private string customerNameComma;
+        private string customerName;
         public string Type
         {
             get { return type; }
             set { this.type = value; loanTypeLabel.Text = value + " Loan"; }
         }
+        public string EmployeeName
+        {
+            get { return employeeName; }
+            set { employeeName = value; loanDescriptionLabel.Text += "\nEmployee: " + value; }
+        }
+        public string CustomerName
+        {
+            get { return customerName; }
+            set { customerName = value; loanDescriptionLabel.Text += "\nCustomer: " + value; }
+        }
+
+        public string CustomerNameComma
+        {
+            get { return customerName; }
+            set { customerName = value; loanDescriptionLabel.Text += ", Customer: " + value; }
+        }
+        public int LoanPersonID
+        {
+            get { return loanPersonID; }
+            set { this.loanPersonID = value; loanDescriptionLabel.Text += "Code: " + value; }
+        }
+
         public string State
         {
             get { return state; }
-            set { this.state = value; loanDescriptionLabel.Text += ",   State: " + value; }
+            set { this.state = value; loanDescriptionLabel.Text += ",  State: " + value; }
         }
         public string SSNPerson
         {
             get { return ssnPerson; }
-            set { ssnPerson = value; loanDescriptionLabel.Text += "\nPerson SSN: " + value; }
+            set { ssnPerson = value; loanDescriptionLabel.Text += "\nSSN: " + value; }
         }
         public int Number
         {

@@ -44,16 +44,16 @@
             loanPicPanel.Controls.Add(loanPictureBox);
             loanPicPanel.Location = new Point(0, 0);
             loanPicPanel.Name = "loanPicPanel";
-            loanPicPanel.Size = new Size(149, 155);
+            loanPicPanel.Size = new Size(149, 175);
             loanPicPanel.TabIndex = 0;
             // 
             // loanPictureBox
             // 
             loanPictureBox.BackColor = SystemColors.Window;
             loanPictureBox.Image = (Image)resources.GetObject("loanPictureBox.Image");
-            loanPictureBox.Location = new Point(17, 22);
+            loanPictureBox.Location = new Point(13, 22);
             loanPictureBox.Name = "loanPictureBox";
-            loanPictureBox.Size = new Size(112, 125);
+            loanPictureBox.Size = new Size(116, 133);
             loanPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             loanPictureBox.TabIndex = 0;
             loanPictureBox.TabStop = false;
@@ -72,15 +72,15 @@
             loanDescriptionLabel.Font = new Font("Bahnschrift", 11F, FontStyle.Regular, GraphicsUnit.Point);
             loanDescriptionLabel.Location = new Point(152, 56);
             loanDescriptionLabel.Name = "loanDescriptionLabel";
-            loanDescriptionLabel.Size = new Size(401, 99);
+            loanDescriptionLabel.Size = new Size(434, 119);
             loanDescriptionLabel.TabIndex = 2;
             // 
             // seperationPanel
             // 
             seperationPanel.BackColor = Color.Gold;
-            seperationPanel.Location = new Point(3, 153);
+            seperationPanel.Location = new Point(3, 173);
             seperationPanel.Name = "seperationPanel";
-            seperationPanel.Size = new Size(557, 5);
+            seperationPanel.Size = new Size(580, 5);
             seperationPanel.TabIndex = 1;
             // 
             // CustomerLoanListControl
@@ -93,7 +93,7 @@
             Controls.Add(loanTypeLabel);
             Controls.Add(loanPicPanel);
             Name = "CustomerLoanListControl";
-            Size = new Size(556, 160);
+            Size = new Size(586, 180);
             loanPicPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)loanPictureBox).EndInit();
             ResumeLayout(false);

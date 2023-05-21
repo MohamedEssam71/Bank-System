@@ -53,12 +53,18 @@ namespace BankSystemGUI
                         SqlCommand bankCodeCmd = new SqlCommand(bankCodeQuery, con);
                         int bankCode = (int)bankCodeCmd.ExecuteScalar();
 
+                        string LoanPersonIDQuery = "SELECT LoanLoanNumber FROM Loan_Person WHERE " +
+                            "PersonSSN = '" + ssnTextBox.Text + "' AND LoanPersonID = "
+                            + int.Parse(adminNumberLoanTextBox.Text);
+                        SqlCommand LoanCmd = new SqlCommand(LoanPersonIDQuery, con);
+                        int LoanLoanNumber = (int)LoanCmd.ExecuteScalar();
+
                         string query = "DELETE FROM Loan_Person " +
-                                       "WHERE LoanLoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) +
+                                       "WHERE LoanPersonID = " + int.Parse(adminNumberLoanTextBox.Text) +
                                        " AND PersonSSN = '" + ssnTextBox.Text.ToString() + "' " +
                                        "AND EXISTS " +
                                        "(SELECT 1 FROM Loan l INNER JOIN Person p ON l.BranchBranchNumber = p.BranchBranchNumber AND l.BranchBankCode = p.BranchBankCode " +
-                                       "WHERE l.LoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) +
+                                       "WHERE l.LoanNumber = " + LoanLoanNumber +
                                        " AND p.BranchBankCode = " + bankCode + ")";
 
                         SqlCommand cmd = new SqlCommand(query, con);
@@ -78,7 +84,7 @@ namespace BankSystemGUI
                     ssnTextBox.Clear();
                     con.Close();
                     return;
-                }
+                }
                 else
                 {
                     if (!isValidLoanNumber())
@@ -94,14 +100,17 @@ namespace BankSystemGUI
                         }
                         else
                         {
+                            string isAccepted = stateLoanComboBox.Text == "Accept" ? "Accepted" : "Rejected";
                             SqlConnection con = new SqlConnection(Program.ConString);
                             con.Open();
                             if (con.State == ConnectionState.Open)
                             {
                                 string query = "UPDATE Loan_Person Set status = '" +
-                                    stateLoanComboBox.Text.ToString() + "' " +
-                                    "WHERE LoanLoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) +
+                                    isAccepted + "'" +
+                                    ",employeeSSN = '" + Program.ssnGlobal + "' " +
+                                    "WHERE LoanPersonID = " + int.Parse(adminNumberLoanTextBox.Text) +
                                     " and PersonSSN = '" + ssnTextBox.Text.ToString() + "'";
+
                                 SqlCommand cmd = new SqlCommand(query, con);
                                 cmd.ExecuteNonQuery();
                             }
@@ -123,13 +132,12 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
-                string query = "SELECT lp.LoanLoanNumber, lp.PersonSSN " +
+                string query = "SELECT lp.LoanPersonID, lp.PersonSSN " +
                     "FROM Loan_Person lp " +
                     "INNER JOIN Loan l ON lp.LoanLoanNumber = l.LoanNumber " +
-                    "INNER JOIN Person p ON p.SSN = lp.PersonSSN " +
-                    "WHERE lp.LoanLoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) + " " +
-                    "AND p.BranchBankCode = " + Program.bankCodeGlobal + " " +
-                    "AND p.BranchBranchNumber IN (SELECT BranchNumber FROM Branch WHERE BankCode = " + Program.bankCodeGlobal + ")";
+                    "WHERE lp.LoanPersonID = " + int.Parse(adminNumberLoanTextBox.Text) + " " +
+                    "AND l.BranchBankCode = " + Program.bankCodeGlobal + " " +
+                    "AND l.BranchBranchNumber IN (SELECT BranchNumber FROM Branch WHERE BankCode = " + Program.bankCodeGlobal + ")";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
@@ -158,7 +166,7 @@ namespace BankSystemGUI
             {
                 string query = "SELECT Status " +
                     "FROM Loan_Person " +
-                    "WHERE LoanLoanNumber = " + int.Parse(adminNumberLoanTextBox.Text) + " " +
+                    "WHERE LoanPersonID = " + int.Parse(adminNumberLoanTextBox.Text) + " " +
                     "AND PersonSSN = '" + ssnTextBox.Text + "'";
                 SqlCommand cmd = new SqlCommand(query, con);
 
@@ -205,14 +213,21 @@ namespace BankSystemGUI
             con.Open();
             if (con.State == ConnectionState.Open)
             {
+
+
                 // loan from the same bank as the admin.
-                string query = "SELECT lp.LoanLoanNumber, lp.PersonSSN, l.Type, lp.Amount, p.BranchBankCode, p.BranchBranchNumber, lp.Status " +
+                string query = "SELECT lp.LoanPersonID, lp.PersonSSN, l.Type, lp.Amount, l.BranchBankCode," +
+                    " l.BranchBranchNumber, lp.Status, p.Name as customerName, p2.Name as EmployeeName " +
                 "FROM Loan_Person lp " +
                 "INNER JOIN Loan l ON lp.LoanLoanNumber = l.LoanNumber " +
+                "Left OUTER JOIN Person p2 on lp.EmployeeSSN = p2.SSN " +
+                "Left OUTER JOIN Person p on lp.PersonSSN = p.SSN " +
+                "WHERE l.BranchBankCode = " + Program.bankCodeGlobal;
+                /*
                 "INNER JOIN Person p ON p.SSN = lp.PersonSSN " +
                 "WHERE p.BranchBankCode = (SELECT BranchBankCode FROM Person WHERE SSN = '" + Program.ssnGlobal + "') " +
                 "AND lp.Status <> 'Delete'";
-
+                */
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
@@ -227,13 +242,28 @@ namespace BankSystemGUI
                         int bankCodeResult = sqlDataReader.GetInt32(4);
                         int branchNumberResult = sqlDataReader.GetInt32(5);
                         string loanState = sqlDataReader.GetString(6);
-
+                        string customerName = sqlDataReader.GetString(7);
+                        string employeeName = sqlDataReader["EmployeeName"] == DBNull.Value ? string.Empty
+                            : (string)sqlDataReader["EmployeeName"];
 
                         CustomerLoanListControl loan = new CustomerLoanListControl();
                         loan.Type = typeResult;
-                        loan.Number = loanNumberResult;
-                        loan.SSNPerson = loanPersonSSN;
+                        loan.LoanPersonID = loanNumberResult;
                         loan.State = loanState;
+
+                        if (employeeName == "")
+                        {
+                            loan.CustomerName = customerName;
+                        }
+                        else
+                        {
+                            loan.EmployeeName = employeeName;
+                            loan.CustomerNameComma = customerName;
+                        }
+                        loan.SSNPerson = loanPersonSSN;
+
+
+
                         loan.Amount = amountResult;
                         loan.BankCode = bankCodeResult;
                         loan.BranchNumber = branchNumberResult;
