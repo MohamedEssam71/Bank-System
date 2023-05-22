@@ -125,13 +125,13 @@ namespace BankSystemGUI
         {
             if (ssnTextBox.Text.Length == 0 || usernameTextBox.Text.Length == 0
                 || passwordTextBox.Text.Length == 0 || phoneTextBox.Text.Length == 0
-                || addressTextBox.TextLength == 0)
+                || addressTextBox.TextLength == 0 || bankNumComboBox.Text.Length == 0
+                || branchNumComboBox.Text.Length == 0)
             {
                 return false;
             }
             return true;
         }
-
         private void goBackToMainButton_Click(object sender, EventArgs e)
         {
             th = new Thread(openAdminForm);
