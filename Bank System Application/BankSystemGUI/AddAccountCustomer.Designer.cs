@@ -95,6 +95,7 @@
             // 
             typeAccountComboBox.BackColor = SystemColors.Control;
             typeAccountComboBox.Cursor = Cursors.Hand;
+            typeAccountComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             typeAccountComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             typeAccountComboBox.FormattingEnabled = true;
             typeAccountComboBox.Location = new Point(118, 156);

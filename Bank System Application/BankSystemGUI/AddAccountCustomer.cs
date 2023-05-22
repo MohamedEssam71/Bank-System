@@ -82,7 +82,7 @@ namespace BankSystemGUI
                 {
                     string query = "Insert into Account(Balance, Type, PersonSSN)" +
                         "Values(" + int.Parse(balanceAccountTextBox.Text) + ", " +
-                        "'" + typeAccountComboBox.Text.ToString() + "', " + 
+                        "'" + typeAccountComboBox.Text.ToString() + "', " +
                         "'" + Program.ssnGlobal + "')";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();

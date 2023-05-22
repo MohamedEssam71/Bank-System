@@ -211,6 +211,7 @@
             // 
             bankNumComboBox.BackColor = Color.OldLace;
             bankNumComboBox.Cursor = Cursors.Hand;
+            bankNumComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             bankNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             bankNumComboBox.FormattingEnabled = true;
             bankNumComboBox.Location = new Point(144, 363);
@@ -223,6 +224,7 @@
             // 
             branchNumComboBox.BackColor = Color.OldLace;
             branchNumComboBox.Cursor = Cursors.Hand;
+            branchNumComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             branchNumComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             branchNumComboBox.FormattingEnabled = true;
             branchNumComboBox.Location = new Point(145, 419);

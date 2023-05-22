@@ -122,6 +122,7 @@
             // stateLoanComboBox
             // 
             stateLoanComboBox.BackColor = SystemColors.Control;
+            stateLoanComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             stateLoanComboBox.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
             stateLoanComboBox.FormattingEnabled = true;
             stateLoanComboBox.Items.AddRange(new object[] { "Accept", "Reject", "Delete" });

@@ -61,7 +61,7 @@ namespace BankSystemGUI
                         if (con.State == ConnectionState.Open)
                         {
                             string query = "UPDATE Loan_Person Set status = '" +
-                                isAccepted + "', EmployeeSSn = '" + Program.ssnGlobal + "' "+
+                                isAccepted + "', EmployeeSSn = '" + Program.ssnGlobal + "' " +
                                 "WHERE LoanPersonID = " + int.Parse(emplyeeNumberLoanTextBox.Text) +
                                 " and PersonSSN = '" + personSSNTextBox.Text.ToString() + "'";
                             SqlCommand cmd = new SqlCommand(query, con);
@@ -167,7 +167,7 @@ namespace BankSystemGUI
             if (con.State == ConnectionState.Open)
             {
 
-                
+
 
                 // loan from the same branch and bank as the employee.
                 string query = "SELECT lp.LoanPersonID,lp.PersonSSN, l.Type, lp.Amount" +
@@ -191,7 +191,7 @@ namespace BankSystemGUI
                         int bankCodeResult = sqlDataReader.GetInt32(4);
                         int branchNumberResult = sqlDataReader.GetInt32(5);
                         string customerName = sqlDataReader.GetString(6);
-      
+
                         CustomerLoanListControl loan = new CustomerLoanListControl();
                         loan.Type = typeResult;
                         loan.LoanPersonID = loanNumberResult;
@@ -203,7 +203,7 @@ namespace BankSystemGUI
                         loan.BankCode = bankCodeResult;
                         loan.BranchNumber = branchNumberResult;
                         loans.Add(loan);
-             
+
                     }
                 }
             }

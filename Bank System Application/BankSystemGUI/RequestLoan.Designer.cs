@@ -95,6 +95,7 @@
             // 
             typeLoanComboBox.BackColor = SystemColors.Control;
             typeLoanComboBox.Cursor = Cursors.Hand;
+            typeLoanComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             typeLoanComboBox.Font = new Font("Bahnschrift", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             typeLoanComboBox.FormattingEnabled = true;
             typeLoanComboBox.Location = new Point(119, 173);

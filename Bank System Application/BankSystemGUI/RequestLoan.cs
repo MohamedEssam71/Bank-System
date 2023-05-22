@@ -45,8 +45,8 @@ namespace BankSystemGUI
                 }
             }
             con.Close();
-            
-            
+
+
         }
 
         private void backToCustomerPanelLabel_Click(object sender, EventArgs e)
