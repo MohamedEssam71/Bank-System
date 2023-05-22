@@ -2,7 +2,7 @@ CREATE TABLE Account (
   AccountNumber int IDENTITY NOT NULL,
   Balance       money NOT NULL,
   Type          nvarchar(255) NOT NULL,
-  PersonSSN     int NOT NULL,
+  PersonSSN     nvarchar(255) NOT NULL,
   PRIMARY KEY (AccountNumber));
 CREATE TABLE Bank (
   Code    int IDENTITY NOT NULL,
@@ -48,3 +48,5 @@ ALTER TABLE Branch ADD CONSTRAINT has FOREIGN KEY (BankCode) REFERENCES Bank (Co
 ALTER TABLE Loan ADD CONSTRAINT Offers FOREIGN KEY (BranchBranchNumber, BranchBankCode) REFERENCES Branch (BranchNumber, BankCode) ON UPDATE Cascade ON DELETE Cascade;
 ALTER TABLE Account ADD CONSTRAINT Owns FOREIGN KEY (PersonSSN) REFERENCES Person (SSN) ON UPDATE Cascade ON DELETE Cascade;
 ALTER TABLE Person ADD CONSTRAINT Registered FOREIGN KEY (BranchBranchNumber, BranchBankCode) REFERENCES Branch (BranchNumber, BankCode) ON UPDATE Cascade ON DELETE Set null;
+
+

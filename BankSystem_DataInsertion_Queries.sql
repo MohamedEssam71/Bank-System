@@ -53,7 +53,7 @@ INSERT INTO Bank (Name, Address) VALUES ('Credit Suisse', '802 Cedar St');
 INSERT INTO Bank (Name, Address) VALUES ('Bank of China', '954 Maple St');
 INSERT INTO Bank (Name, Address) VALUES ('Mitsubishi UFJ Financial Group', '267 Oak St');
 INSERT INTO Bank (Name, Address) VALUES ('Banco Santander', '380 Elm St');
-INSERT INTO Bank (Name, Address) VALUES ('Banco Itaú', '593 Pine St');
+INSERT INTO Bank (Name, Address) VALUES ('Banco Itaï¿½', '593 Pine St');
 INSERT INTO Bank (Name, Address) VALUES ('BNP Paribas', '706 Cedar St');
 INSERT INTO Bank (Name, Address) VALUES ('Deutsche Bank', '819 Maple St');
 INSERT INTO Bank (Name, Address) VALUES ('Standard Chartered', '932 Oak St');
@@ -280,6 +280,9 @@ INSERT INTO Account (Balance, Type, PersonSSN) VALUES (3500, 'Savings', '4561237
 INSERT INTO Account (Balance, Type, PersonSSN) VALUES (7000, 'Checking', '987321654');
 INSERT INTO Account (Balance, Type, PersonSSN) VALUES (5000, 'Savings', '741852963');
 
+
+Delete From bank Where Code =ANY
+(select bn.Code from bank bn full outer join branch b on bn.Code = b.BankCode group by bn.Code Having Count(BranchNumber)=0)
 
 /*---------------------------------------------------------*/
 /*
