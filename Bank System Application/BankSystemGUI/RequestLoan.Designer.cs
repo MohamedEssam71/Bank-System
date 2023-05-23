@@ -143,6 +143,7 @@
             Controls.Add(requestLoanLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RequestLoan";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RequestLoan";
             ResumeLayout(false);
             PerformLayout();

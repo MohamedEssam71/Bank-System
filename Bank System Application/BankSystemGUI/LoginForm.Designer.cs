@@ -180,6 +180,7 @@
             Controls.Add(loginLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login Form";
             ((System.ComponentModel.ISupportInitialize)loginPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)avatarPictureBox).EndInit();

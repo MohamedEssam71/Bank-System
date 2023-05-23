@@ -235,6 +235,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CustomerList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CustomerList";
             Load += CustomerList_Load;
             ResumeLayout(false);

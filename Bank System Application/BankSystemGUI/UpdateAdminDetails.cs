@@ -84,10 +84,10 @@ namespace BankSystemGUI
                                 "WHERE ssn = '" + Program.ssnGlobal + "'";
                             SqlCommand cmd = new SqlCommand(query, con);
                             cmd.ExecuteNonQuery();
-                            
+
                             Program.ssnGlobal = ssnTextBox.Text.ToString();
                             Program.passwordGlobal = passwordTextBox.Text.ToString();
-                            Program.bankCodeGlobal = int.Parse(bankNumComboBox.Text) ;
+                            Program.bankCodeGlobal = int.Parse(bankNumComboBox.Text);
                             Program.branchNumberGlobal = int.Parse(branchNumComboBox.Text);
                         }
                         con.Close();

@@ -190,6 +190,7 @@
             Controls.Add(AddBranchFormLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddBranchForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddBranchForm";
             Load += AddBankForm_Load;
             ResumeLayout(false);

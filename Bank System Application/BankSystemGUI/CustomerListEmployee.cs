@@ -26,23 +26,23 @@ namespace BankSystemGUI
             populateCustomers();
         }
         private void populateCustomers()
-        {   
+        {
             if (CustomerListFlowControlPanel.Controls.Count > 0)
             {
                 CustomerListFlowControlPanel.Controls.Clear();
             }
-            
+
 
             // the problem will be fixed with database as each time 
             // the array will be loaded with the new data and won't be changed
             //this.Size = new Size(1113, 519);
-            
+
             SqlConnection con = new SqlConnection(Program.ConString);
             con.Open();
             if (con.State == ConnectionState.Open)
             {
                 string query = "SELECT * from person where BranchBankCode IN (" +
-                    "select BranchBankCode from Person where ssn = '" + Program.ssnGlobal +"')" +
+                    "select BranchBankCode from Person where ssn = '" + Program.ssnGlobal + "')" +
                     "and BranchBranchNumber IN (select BranchBranchNumber from Person where " +
                     "ssn = '" + Program.ssnGlobal + "') and ssn <> '" + Program.ssnGlobal + "' " +
                     "and type = 'Customer'";
@@ -80,7 +80,7 @@ namespace BankSystemGUI
             else
             {
                 this.Width = 1113;
-                for(int i = 0; i < customerListControls.Count; i++)
+                for (int i = 0; i < customerListControls.Count; i++)
                 {
                     CustomerListFlowControlPanel.Controls.Add(customerListControls[i]);
                 }
@@ -113,7 +113,7 @@ namespace BankSystemGUI
                     customerListControls.Add(customer);
                     CustomerListFlowControlPanel.Controls.Add(customer);
 
-                    
+
                     SqlConnection con = new SqlConnection(Program.ConString);
                     con.Open();
                     if (con.State == ConnectionState.Open)
@@ -160,7 +160,7 @@ namespace BankSystemGUI
             con.Close();
             return true;
         }
-        
+
         private bool checkIfCustomerFill()
         {
             if (customerNameTextBox.TextLength == 0 || customerSsnTextBox.TextLength == 0

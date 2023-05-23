@@ -267,6 +267,7 @@
             Controls.Add(profileLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UpdateEmployeeDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Profile Page";
             Load += UpdateCustomerDetails_Load;
             ((System.ComponentModel.ISupportInitialize)updateEmployeeDetailsBox).EndInit();

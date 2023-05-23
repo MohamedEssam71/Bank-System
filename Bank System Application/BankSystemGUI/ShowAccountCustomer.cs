@@ -86,7 +86,7 @@ namespace BankSystemGUI
             }
             else
             {
-                if(checkIfFound())
+                if (checkIfFound())
                 {
                     DialogResult dialogResult = new DialogResult();
                     dialogResult = MessageBox.Show("Sure you want to Save Changes ? ", "Confirmation", MessageBoxButtons.YesNo);
@@ -139,7 +139,7 @@ namespace BankSystemGUI
 
 
         }
-   
+
         private bool checkIfFill()
         {
             if (accNumTextBox.Text.Length == 0)

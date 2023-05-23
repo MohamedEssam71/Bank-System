@@ -34,6 +34,9 @@
     <Compile Update="RegisterationForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="reportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RequestLoan.cs">
       <SubType>Form</SubType>
     </Compile>

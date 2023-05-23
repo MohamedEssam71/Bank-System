@@ -48,5 +48,18 @@ namespace BankSystemGUI
                 Application.Exit();
             }
         }
+
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            th = new Thread(openReportForm);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
+        }
+
+        private void openReportForm()
+        {
+            Application.Run(new reportForm());
+        }
     }
 }

@@ -130,6 +130,7 @@
             Controls.Add(employeeFormLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EmployeeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Employee Form";
             ((System.ComponentModel.ISupportInitialize)employeePanelPictureBox).EndInit();
             ResumeLayout(false);

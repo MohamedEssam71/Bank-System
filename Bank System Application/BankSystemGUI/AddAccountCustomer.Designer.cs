@@ -143,6 +143,7 @@
             Controls.Add(addAccountLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddAccountCustomer";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Account";
             Load += AddAccountCustomer_Load;
             ResumeLayout(false);

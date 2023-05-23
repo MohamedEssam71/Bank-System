@@ -52,7 +52,7 @@ namespace BankSystemGUI
                 if (con.State == ConnectionState.Open)
                 {
                     string query = "SELECT ssn, password, type, BranchBranchNumber, BranchBankCode FROM Person WHERE " +
-                        "ssn = " + "'" + ssnLoginTextBox.Text.ToString() +"'" + " AND " +
+                        "ssn = " + "'" + ssnLoginTextBox.Text.ToString() + "'" + " AND " +
                         "password = " + "'" + passwordLoginTextBox.Text.ToString() + "'";
                     SqlCommand cmd = new SqlCommand(query, con);
 
@@ -62,12 +62,12 @@ namespace BankSystemGUI
                         {
                             string ssnResult = sqlDataReader.GetString(0);
                             string passResult = sqlDataReader.GetString(1);
-                            string typeResult = sqlDataReader.GetString(2); 
+                            string typeResult = sqlDataReader.GetString(2);
                             int branchResult = sqlDataReader.GetInt32(3);
                             int bankCodeResult = sqlDataReader.GetInt32(4);
-                            if(ssnLoginTextBox.Text == ssnResult)
+                            if (ssnLoginTextBox.Text == ssnResult)
                             {
-                                if(passResult == passwordLoginTextBox.Text)
+                                if (passResult == passwordLoginTextBox.Text)
                                 {
                                     Program.ssnGlobal = ssnResult;
                                     Program.passwordGlobal = passResult;

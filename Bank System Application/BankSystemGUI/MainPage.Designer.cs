@@ -34,6 +34,7 @@
             loginButton = new Button();
             welcomePictureBox = new PictureBox();
             exitButton = new Button();
+            reportButton = new Button();
             ((System.ComponentModel.ISupportInitialize)welcomePictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             BankSystemTitle.BackColor = SystemColors.ButtonHighlight;
             BankSystemTitle.Font = new Font("Bauhaus 93", 30F, FontStyle.Bold, GraphicsUnit.Point);
             BankSystemTitle.ForeColor = SystemColors.Highlight;
-            BankSystemTitle.Location = new Point(44, 55);
+            BankSystemTitle.Location = new Point(47, 33);
             BankSystemTitle.Name = "BankSystemTitle";
             BankSystemTitle.Size = new Size(311, 57);
             BankSystemTitle.TabIndex = 0;
@@ -58,7 +59,7 @@
             registerButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
             registerButton.FlatStyle = FlatStyle.Flat;
             registerButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            registerButton.Location = new Point(87, 223);
+            registerButton.Location = new Point(89, 192);
             registerButton.Name = "registerButton";
             registerButton.Size = new Size(211, 56);
             registerButton.TabIndex = 1;
@@ -75,7 +76,7 @@
             loginButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
             loginButton.FlatStyle = FlatStyle.Flat;
             loginButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            loginButton.Location = new Point(87, 136);
+            loginButton.Location = new Point(89, 115);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(211, 56);
             loginButton.TabIndex = 2;
@@ -104,7 +105,7 @@
             exitButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
             exitButton.FlatStyle = FlatStyle.Flat;
             exitButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            exitButton.Location = new Point(87, 317);
+            exitButton.Location = new Point(89, 353);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(211, 56);
             exitButton.TabIndex = 4;
@@ -112,12 +113,30 @@
             exitButton.UseVisualStyleBackColor = false;
             exitButton.Click += exitButton_Click;
             // 
+            // reportButton
+            // 
+            reportButton.BackColor = SystemColors.Menu;
+            reportButton.Cursor = Cursors.Hand;
+            reportButton.FlatAppearance.BorderColor = SystemColors.Highlight;
+            reportButton.FlatAppearance.BorderSize = 2;
+            reportButton.FlatAppearance.MouseOverBackColor = SystemColors.Info;
+            reportButton.FlatStyle = FlatStyle.Flat;
+            reportButton.Font = new Font("Bahnschrift", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            reportButton.Location = new Point(89, 274);
+            reportButton.Name = "reportButton";
+            reportButton.Size = new Size(211, 56);
+            reportButton.TabIndex = 5;
+            reportButton.Text = "Generate Report";
+            reportButton.UseVisualStyleBackColor = false;
+            reportButton.Click += reportButton_Click;
+            // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(753, 438);
+            Controls.Add(reportButton);
             Controls.Add(exitButton);
             Controls.Add(welcomePictureBox);
             Controls.Add(loginButton);
@@ -125,6 +144,7 @@
             Controls.Add(BankSystemTitle);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainPage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "BankSystem";
             ((System.ComponentModel.ISupportInitialize)welcomePictureBox).EndInit();
             ResumeLayout(false);
@@ -139,5 +159,6 @@
         private Button loginButton;
         private PictureBox welcomePictureBox;
         private Button exitButton;
+        private Button reportButton;
     }
 }

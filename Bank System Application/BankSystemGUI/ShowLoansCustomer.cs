@@ -49,10 +49,10 @@ namespace BankSystemGUI
                     while (sqlDataReader.Read())
                     {
                         CustomerLoanListControl loansControl = new CustomerLoanListControl();
-                        loansControl.Type = (string) sqlDataReader["Type"];
-                        loansControl.LoanPersonID = (int) sqlDataReader["LoanPersonID"];
-                        loansControl.State = (string) sqlDataReader["Status"];
-                        loansControl.Amount = (decimal) sqlDataReader["Amount"];
+                        loansControl.Type = (string)sqlDataReader["Type"];
+                        loansControl.LoanPersonID = (int)sqlDataReader["LoanPersonID"];
+                        loansControl.State = (string)sqlDataReader["Status"];
+                        loansControl.Amount = (decimal)sqlDataReader["Amount"];
                         loansControl.BankCode = Program.bankCodeGlobal;
                         loansControl.BranchNumber = Program.branchNumberGlobal;
                         loans.Add(loansControl);

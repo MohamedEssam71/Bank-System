@@ -111,6 +111,6 @@ namespace BankSystemGUI
         private void codeBankTextBox_TextChanged(object sender, EventArgs e)
         {
 
-        }
-    }
+        }
+    }
 }

@@ -155,6 +155,7 @@
             Controls.Add(showAccountCustomerLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShowAccountCustomer";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowLoansCustomer";
             Load += ShowAccountCustomer_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

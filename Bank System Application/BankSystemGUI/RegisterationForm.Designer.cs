@@ -295,6 +295,7 @@
             Controls.Add(registerLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RegisterationForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registration Form";
             ((System.ComponentModel.ISupportInitialize)registrationPictureBox).EndInit();
             ResumeLayout(false);

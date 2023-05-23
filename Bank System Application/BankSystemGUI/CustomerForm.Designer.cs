@@ -166,6 +166,7 @@
             Controls.Add(customerPanelLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CustomerForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CustomerForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

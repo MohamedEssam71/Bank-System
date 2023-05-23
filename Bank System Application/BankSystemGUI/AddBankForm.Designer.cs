@@ -153,6 +153,7 @@
             Controls.Add(AddBankFormLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AddBankForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AddBankForm";
             Load += AddBankForm_Load;
             ResumeLayout(false);

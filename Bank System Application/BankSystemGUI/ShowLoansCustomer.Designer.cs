@@ -92,6 +92,7 @@
             Controls.Add(showLoansCustomerLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShowLoansCustomer";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowLoansCustomer";
             Load += ShowLoansCustomer_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

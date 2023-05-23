@@ -136,3 +136,4 @@ H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank-System-GitHub\Bank System Applic
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank-System-GitHub\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.pdb
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank-System-GitHub\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.genruntimeconfig.cache
 H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank-System-GitHub\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\ref\BankSystemGUI.dll
+H:\ME71\2nd Year\2nd Term\DataBase\Project\Bank-System-GitHub\Bank System Application\BankSystemGUI\obj\Debug\net7.0-windows\BankSystemGUI.reportForm.resources

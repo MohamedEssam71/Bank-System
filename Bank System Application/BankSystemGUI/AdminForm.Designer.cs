@@ -166,6 +166,7 @@
             Controls.Add(adminPanelLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdminForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Form";
             ((System.ComponentModel.ISupportInitialize)adminPictureBox).EndInit();
             ResumeLayout(false);
